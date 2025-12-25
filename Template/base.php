@@ -2,30 +2,36 @@
 <html lang="it">
     <head>
         <title><?php echo $templateParams["titolo"]; ?></title>
-        <link rel="stylesheet" type="text/css" href="./CSS/style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/style.css">
     </head>
     <body>
         <header>
-            <h1>Gruppi M&P</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Gruppi</a></li>
-                    <li><a href="#">Annunci</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
-            </nav>
+            <!--<h1>Gruppi M&P</h1>-->
+            <div class="row">
+                <nav class="col-12">
+                    <ul class="row nav text-center">
+                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="#">Gruppi</a></li>
+                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="#">Annunci</a></li>
+                        <li class="nav-item col-3 col-sm-auto ms-auto"><a class="nav-link" href="#">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main>
             
         </main>
+        <footer>
+            <div class="row">
+                <nav class="col-12">
+                    <ul class="row nav text-center justify-content-center">
+                        <li class="nav-item col-5 col-sm-auto"><a class="nav-link" href="#">AlmaEsami</a></li>
+                        <li class="nav-item col-5 col-sm-auto"><a class="nav-link" href="#">Virtuale</a></li>
+                        <li class="nav-item col-5 col-sm-auto"><a class="nav-link" href="#">Studenti Online</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
     </body>
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="#">AlmaEsami</a></li>
-                <li><a href="#">Virtuale</a></li>
-                <li><a href="#">Studenti Online</a></li>
-            </ul>
-        </nav>
-    </footer>
 </html>

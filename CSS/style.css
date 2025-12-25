@@ -1,0 +1,18 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    background-color: #3f5788;
+    color: white;
+}
+
+nav .nav-link {
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav .nav-link:hover {
+    background-color: #9cbce7;
+    color: black;
+}
