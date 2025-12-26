@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title><?php echo $templateParams["titolo"]; ?></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="CSS/style.css">
@@ -20,7 +19,11 @@
             </div>
         </header>
         <main>
-            
+            <?php
+                if(isset($templateParams["nome"])){
+                    require($templateParams["nome"]);
+                }
+            ?>
         </main>
         <footer>
             <div class="row">
@@ -33,5 +36,14 @@
                 </nav>
             </div>
         </footer>
+        <?php
+            if(isset($templateParams["js"])):
+                foreach($templateParams["js"] as $script):
+        ?>
+        <script src="<?php echo $script; ?>"></script>
+        <?php
+            endforeach;
+        endif;
+        ?>
     </body>
 </html>
