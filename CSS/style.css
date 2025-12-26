@@ -1,8 +1,23 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 nav {
+    width: 100%;
     background-color: #3f5788;
     color: white;
 }
@@ -15,4 +30,56 @@ nav .nav-link {
 nav .nav-link:hover {
     background-color: #9cbce7;
     color: black;
+}
+
+main > section > form {
+    padding: 1%;
+    border-bottom: 2px solid #3f5788;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.gruppo {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 2px solid #3f5788;
+    padding: 1%;
+    margin: 2%;
+    transition: background-color 0.3s;
+}
+
+.gruppo:hover {
+    background-color: #9cbce7;
+}
+
+.gruppo p {
+    margin: 1% 0;
+    font-weight: bold;
+}
+
+.gruppo button {
+    border-radius: 8px;
+    border: 1px solid #3f5788;
+    background-color: #3f5788;
+    color: white;
+    cursor: pointer;
+    padding: 1% 4%;
+    display: block;
+    margin-left: auto;
+    margin-top: 0.5rem;
+}
+
+.gruppo button:hover {
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.6);
 }
