@@ -1,6 +1,7 @@
 <?php
     require_once 'bootstrap.php';
-    $templateParams["titolo"] = "Gruppi M&P- Gruppi";
-
+    $templateParams["nome"] = "Template/gruppi.php";
+    $templateParams["js"] = array("JS/gruppi.js");
+    
     require './Template/base.php';
 ?>
