@@ -10,6 +10,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #fffef6;
 }
 
 main {
@@ -19,11 +20,11 @@ main {
 nav {
     width: 100%;
     background-color: #3f5788;
-    color: white;
+    color: #fffef6;
 }
 
 nav .nav-link {
-    color: white;
+    color: #fffef6;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -35,6 +36,10 @@ nav .nav-link:hover {
 main > section > form {
     padding: 1%;
     border-bottom: 2px solid #3f5788;
+}
+
+main > section > form select {
+    background-color: #fffef6;
 }
 
 .row {
@@ -53,6 +58,7 @@ main > section > form {
 .gruppo {
     box-sizing: border-box;
     display: inline-block;
+    border-radius: 8px;
     border: 2px solid #3f5788;
     padding: 1%;
     margin: 2%;
@@ -72,7 +78,7 @@ main > section > form {
     border-radius: 8px;
     border: 1px solid #3f5788;
     background-color: #3f5788;
-    color: white;
+    color: #fffef6;
     cursor: pointer;
     padding: 1% 4%;
     display: block;
