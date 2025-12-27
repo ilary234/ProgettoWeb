@@ -4,9 +4,9 @@ document.getElementById("materie").addEventListener("change", filterBySubject);
 function filterByCourse() {
     const index = document.getElementById("corsi").selectedIndex - 1;
     if(index >= 0) {
-        const corso = corsi[index]["Id_Corso"];
-        const materieFiltrate = materie.filter(m => m["Corso"] == corso);
-        const gruppiFiltrati = gruppi.filter(g => g["CorsoLaurea"] == corso);
+        corsoSelezionato = corsi[index]["Id_Corso"];
+        const materieFiltrate = materie.filter(m => m["Corso"] == corsoSelezionato);
+        const gruppiFiltrati = gruppi.filter(g => g["CorsoLaurea"] == corsoSelezionato);
         document.getElementById("materie").innerHTML = getSubjects(materieFiltrate);
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppiFiltrati);
     } else {
@@ -18,7 +18,7 @@ function filterByCourse() {
 function filterBySubject() {
     const index = document.getElementById("materie").selectedIndex - 1;
     if(index >= 0) {
-        const materia = materie[index]["Id_Materia"];
+        const materia = materie.filter(m => m["Corso"] == corsoSelezionato)[index]["Id_Materia"];
         const gruppiFiltrati = gruppi.filter(g => g["Materia"] == materia);
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppiFiltrati);
     } else {
@@ -85,4 +85,5 @@ async function getStartData() {
 }
 
 let gruppi, corsi, materie;
+let corsoSelezionato;
 getStartData();
