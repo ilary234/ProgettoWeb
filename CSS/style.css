@@ -34,12 +34,13 @@ nav .nav-link:hover {
 }
 
 main > section > form {
-    padding: 1%;
+    padding: 0.5%;
     border-bottom: 2px solid #3f5788;
 }
 
 main > section > form select {
     background-color: #fffef6;
+    border-radius: 8px;
 }
 
 .row {
@@ -51,13 +52,11 @@ main > section > form select {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-content: space-evenly;
 }
 
 .gruppo {
-    box-sizing: border-box;
-    display: inline-block;
     border-radius: 8px;
     border: 2px solid #3f5788;
     padding: 1%;

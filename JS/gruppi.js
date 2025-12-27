@@ -45,7 +45,7 @@ function getCourses() {
 function getGroups(gruppiFiltrati) {
     let section = ``;
     for (let i = 0; i < gruppiFiltrati.length; i++) {
-        section += `<div class="gruppo">
+        section += `<div class="gruppo col-10 col-sm-auto">
                 <p>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</p>
                 <p>Admin: ${gruppiFiltrati[i]["AdminGruppo"]}</p>
                 <p>Iscritti: ${gruppiFiltrati[i]["NumeroPartecipanti"]}</p>
