@@ -89,3 +89,40 @@ main > section > form select {
 .gruppo button:hover {
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.6);
 }
+
+.annuncio {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    border: 2px solid #3f5788;
+    padding: 1%;
+    margin: 2%;
+    transition: background-color 0.3s;
+}
+
+.annuncio:hover {
+    background-color: #9cbce7;
+}
+
+.annuncio h3 {
+    margin: 1% 0;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.annuncio p {
+    margin: 1% 0;
+    font-weight: bold;
+}
+
+.annuncio a {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    font-weight: bold;
+}

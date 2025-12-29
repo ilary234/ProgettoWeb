@@ -30,6 +30,20 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getCategories() {
+        $stmt = $this->db->prepare("SELECT DISTINCT Categoria FROM Annuncio");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAnnunci() {
+        $stmt = $this->db->prepare("SELECT * FROM Annuncio ORDER BY DataPubblicazione DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 
 
