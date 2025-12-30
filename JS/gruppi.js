@@ -22,7 +22,7 @@ function filterBySubject() {
         const gruppiFiltrati = gruppi.filter(g => g["Materia"] == materia);
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppiFiltrati);
     } else {
-        document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppi);
+        filterByCourse();
     }
 }
 
@@ -45,11 +45,11 @@ function getCourses() {
 function getGroups(gruppiFiltrati) {
     let section = ``;
     for (let i = 0; i < gruppiFiltrati.length; i++) {
-        section += `<div class="gruppo col-10 col-sm-auto">
-                <p>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</p>
+        section += `<div class="gruppo">
+                <h2>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</h2>
                 <p>Admin: ${gruppiFiltrati[i]["AdminGruppo"]}</p>
                 <p>Iscritti: ${gruppiFiltrati[i]["NumeroPartecipanti"]}</p>
-                <button type="button">Info</button>
+                <a href="#">Info</a>
             </div>`;
         
     }
