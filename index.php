@@ -9,26 +9,6 @@
         exit();
     }
     
-    // Gestisci registrazione
-    if(isset($_POST['nome']) && isset($_POST['cognome']) && !isset($_GET['annuncio'])) {
-        $username = $_POST['username'];
-        $nome = $_POST['nome'];
-        $cognome = $_POST['cognome'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $telefono = $_POST['telefono'] ?? null;
-        $corso = $_POST['corso'] ?? null;
-        $anno = $_POST['anno'] ?? null;
-        $result = $dbh->insertUtente($username, $nome, $cognome, $password, $email, $telefono, $corso, $anno);
-        if($result === true) {
-            $_SESSION['username'] = $username;
-            header("Location: index.php");
-            exit();
-        } else {
-            $registerError = "Errore nella registrazione: " . $result;
-        }
-    }
-    
     if(isset($_GET['annuncio'])) {
         $idAnnuncio = $_GET['annuncio'];
         

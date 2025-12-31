@@ -9,7 +9,7 @@
             header("Location: index.php");
             exit();
         } else {
-            $templateParams["registrationerror"] = "Errore nella registrazione: username già in uso." . $result;
+            $templateParams["registrationerror"] = "Errore nella registrazione: username già in uso.";
         }
     }
     

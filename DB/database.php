@@ -88,7 +88,7 @@ class DatabaseHelper{
 
     public function insertUtente($username, $nome, $cognome, $password, $email) {
         $stmt = $this->db->prepare("INSERT INTO Utente (Username, Nome, Cognome, Password, Email, Telefono, CorsoLaurea, Anno) VALUES (?, ?, ?, ?, ?, null, null, null)");
-        $stmt->bind_param("ssssssii", $username, $nome, $cognome, $password, $email, $telefono, $corso, $anno);
+        $stmt->bind_param("sssss", $username, $nome, $cognome, $password, $email);
         return $stmt->execute();
     }
 
