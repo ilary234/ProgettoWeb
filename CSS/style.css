@@ -15,6 +15,8 @@ body {
 
 main {
     flex: 1 0 auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 140px);
 }
 
 nav {
@@ -74,7 +76,7 @@ main > section > form select {
     font-weight: bold;
 }
 
-.gruppo button {
+.gruppo button, .btn.btn-primary.btn-submit  {
     border-radius: 8px;
     border: 1px solid #3f5788;
     background-color: #3f5788;
@@ -88,6 +90,10 @@ main > section > form select {
 
 .gruppo button:hover {
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.6);
+}
+
+.link {
+    color: #3f5788;
 }
 
 .annuncio {
@@ -108,8 +114,9 @@ main > section > form select {
     background-color: #9cbce7;
 }
 
-.annuncio h3 {
+.annuncio h2 {
     margin: 1% 0;
+    font-size: 0.9rem;
     font-weight: bold;
     word-wrap: break-word;
 }
@@ -126,3 +133,89 @@ main > section > form select {
     color: black;
     font-weight: bold;
 }
+
+/* Stili per annuncioAperto.php */
+.annuncio-dettagli {
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.annuncio-dettagli h1 {
+    color: #3f5788;
+    margin-bottom: 20px;
+}
+
+.descrizione {
+    margin-top: 20px;
+}
+
+.commenti-sezione {
+    padding: 20px;
+}
+
+.commenti-header {
+    margin-bottom: 20px;
+}
+
+.commenti-lista {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.commento {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.commento:last-child {
+    border-bottom: none;
+}
+
+.aggiungi-commento {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+/* Header fisso */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Footer sempre visibile */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #3f5788;
+    color: #fffef6;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 40px; /* Spazio per header fisso */
+    padding-bottom: 80px; /* Spazio per footer fisso */
+}
+
+/* Drawer commenti per mobile */
+@media (max-width: 768px) {
+    .commenti-sezione {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 70%;
+        background-color: #fff;
+        border-top: 2px solid #3f5788;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+    }
+    .commenti-sezione.open {
+        transform: translateY(0);
+    }
+}
+
