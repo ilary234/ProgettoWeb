@@ -5,7 +5,7 @@
             <?php if(isset($templateParams["registrationerror"])): ?>
                 <div class="alert alert-danger"><?php echo $templateParams["registrationerror"]; ?></div>
             <?php endif; ?>
-            <form action="" method="post">
+            <form action="registrazione.php" method="post" class="form-wrapper">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" required>

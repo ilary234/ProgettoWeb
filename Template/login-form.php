@@ -5,7 +5,7 @@
             <?php if(isset($templateParams["loginerror"])): ?>
                 <div class="alert alert-danger"><?php echo $templateParams["loginerror"]; ?></div>
             <?php endif; ?>
-            <form action="" method="post">
+            <form action="#" method="post" class="form-wrapper">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
