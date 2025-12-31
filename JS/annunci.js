@@ -1,9 +1,7 @@
 document.getElementById("categorie").addEventListener("change", filterAnnunci);
 document.getElementById("materie").addEventListener("change", filterAnnunci);
 
-let annunci = [];
-let categorie = [];
-let materie = [];
+let annunci, categorie, materie;
 
 async function getStartData() {
     let urlAnnunci = "API/api-annunci.php";
@@ -72,10 +70,10 @@ function getAnnunciHTML(annunciList) {
     let section = ``;
     annunciList.forEach(annuncio => {
         section += `<div class="annuncio">
-                <h3>${annuncio.Titolo}</h3>
+                <h2>${annuncio.Titolo}</h2>
                 <p>${annuncio.Username}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;${annuncio.DataPubblicazione}</p>
                 <p>${annuncio.Anteprima}</p>
-                <a href="#">Leggi tutto</a>
+                <a href="annuncioAperto.php?annuncio=${annuncio.Id_annuncio}">Leggi tutto</a>
             </div>`;
     });
     return section;
