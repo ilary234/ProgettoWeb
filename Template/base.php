@@ -11,9 +11,15 @@
             <div class="row">
                 <nav class="col-12">
                     <ul class="row nav text-center">
-                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="#">Gruppi</a></li>
-                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="#">Annunci</a></li>
-                        <li class="nav-item col-3 col-sm-auto ms-auto"><a class="nav-link" href="#">Login</a></li>
+                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="index.php">Gruppi</a></li>
+                        <li class="nav-item col-3 col-sm-auto"><a class="nav-link" href="annunci.php">Annunci</a></li>
+                        <li class="nav-item col-3 col-sm-auto ms-auto">
+                            <?php if(isset($_SESSION['username'])): ?>
+                                <a class="nav-link" href="areaRiservata.php">Login</a>
+                            <?php else: ?>
+                                <a class="nav-link" href="login.php">Login</a>
+                            <?php endif; ?>
+                        </li>
                     </ul>
                 </nav>
             </div>
