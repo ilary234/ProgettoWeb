@@ -217,5 +217,26 @@ body {
     .commenti-sezione.open {
         transform: translateY(0);
     }
+
+    .form-wrapper {
+        padding: 0 20%;
+    }
+
+    .card .btn {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+    }
+
+    .card .position-absolute {
+        position: static;
+        margin: 0 0 0.5rem 0;
+        justify-content: flex-end;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
