@@ -86,6 +86,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function checkUsername($username) {
+        $query = "SELECT Username, Nome, Cognome, Email, Telefono, CorsoLaurea, Anno FROM Utente WHERE Username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function insertUtente($username, $nome, $cognome, $password, $email) {
         $stmt = $this->db->prepare("INSERT INTO Utente (Username, Nome, Cognome, Password, Email, Telefono, CorsoLaurea, Anno) VALUES (?, ?, ?, ?, ?, null, null, null)");
         $stmt->bind_param("sssss", $username, $nome, $cognome, $password, $email);
