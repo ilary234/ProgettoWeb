@@ -76,7 +76,7 @@ main > section > form select {
     font-weight: bold;
 }
 
-.gruppo button, .btn.btn-primary.btn-submit  {
+.gruppo button, .btn.btn-primary  {
     border-radius: 8px;
     border: 1px solid #3f5788;
     background-color: #3f5788;
@@ -197,6 +197,10 @@ footer {
 body {
     padding-top: 40px; /* Spazio per header fisso */
     padding-bottom: 80px; /* Spazio per footer fisso */
+}
+
+main > section > form#editProfileForm {
+    border-bottom: none;
 }
 
 /* Drawer commenti per mobile */

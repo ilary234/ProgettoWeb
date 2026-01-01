@@ -10,7 +10,7 @@
             <div class="position-absolute top-0 end-0 m-3 d-flex gap-2">
 
                 <!-- Modifica profilo -->
-                <a href="modifica_profilo.php" class="btn btn-outline-secondary">✏️</a>
+                <a href="modificaProfilo.php" class="btn btn-outline-secondary">✏️</a>
 
                 <!-- Cambia password -->
                 <a href="cambia_password.php" class="btn btn-outline-primary">Cambia password</a>

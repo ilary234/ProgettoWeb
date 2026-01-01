@@ -110,6 +110,19 @@ class DatabaseHelper{
         return $result->fetch_assoc();
     }
 
+    public function updateUserProfile($nome, $cognome, $email, $telefono, $anno, $corso, $username) {
+        $stmt = $this->db->prepare("UPDATE Utente SET Nome = ?, Cognome = ?, Email = ?, Telefono = ?, Anno = ?, CorsoLaurea = ? WHERE Username = ?");
+
+        if (!$stmt) {
+            return false;
+        }
+
+        $stmt->bind_param("ssssiis", $nome, $cognome, $email, $telefono, $anno, $corso, $username);
+
+        return $stmt->execute();
+    }
+
+
 }
 
 
