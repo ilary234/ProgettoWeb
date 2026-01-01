@@ -24,30 +24,31 @@
                 <!-- Colonna sinistra -->
                 <div class="col-md-6">
                     <p><strong>Nome e Cognome</strong><br>
-                        <?php echo $user['Nome'] . ' ' . $user['Cognome']; ?>
+                        <span id="nome-cognome"></span>
                     </p>
 
                     <p><strong>Username</strong><br>
-                        <?php echo $user['Username']; ?>
+                        <span id="username"></span>
                     </p>
 
                     <p><strong>Email</strong><br>
-                        <?php echo $user['Email']; ?>
+                        <span id="email"></span>
                     </p>
+
                 </div>
 
                 <!-- Colonna destra -->
                 <div class="col-md-6">
                     <p><strong>Telefono</strong><br>
-                        <?php echo $user['Telefono'] ?: 'Non specificato'; ?>
+                        <span id="telefono"></span>
                     </p>
 
                     <p><strong>Corso di laurea</strong><br>
-                        <?php echo $user['CorsoLaurea'] ?: 'Non specificato'; ?>
+                        <span id="corso"></span>
                     </p>
 
                     <p><strong>Anno</strong><br>
-                        <?php echo $user['Anno'] ?: 'Non specificato'; ?>
+                        <span id="anno"></span>
                     </p>
                 </div>
             </div>
@@ -90,3 +91,4 @@
     </div>
 
 </section>
+
