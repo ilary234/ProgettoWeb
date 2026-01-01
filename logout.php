@@ -1,6 +1,7 @@
 <?php
-    session_start();
+    require_once 'bootstrap.php';
+    session_unset();
     session_destroy();
-    header("Location: annunci.php");
+    header("Location: index.php");
     exit();
 ?>
