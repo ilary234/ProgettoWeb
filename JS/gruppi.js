@@ -49,9 +49,8 @@ function getGroups(gruppiFiltrati) {
                 <h2>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</h2>
                 <p>Admin: ${gruppiFiltrati[i]["AdminGruppo"]}</p>
                 <p>Iscritti: ${gruppiFiltrati[i]["NumeroPartecipanti"]}</p>
-                <a href="#">Info</a>
+                <a href="gruppo.php?nomeGruppo=${gruppiFiltrati[i]["NomeGruppo"]}&admin=${gruppiFiltrati[i]["AdminGruppo"]}">Info</a>
             </div>`;
-        
     }
     return section;
 }

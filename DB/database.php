@@ -30,6 +30,30 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getGroupData($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT * FROM Gruppo WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTopics($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT Titolo FROM Argomento WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getMeetings($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT DataIncontro, Ora FROM Incontro WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 
 

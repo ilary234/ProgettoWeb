@@ -280,23 +280,23 @@ INSERT INTO Argomento VALUES
 --           INCONTRI
 -- =============================
 INSERT INTO Incontro (AdminGruppo, NomeGruppo, DataIncontro, Ora) VALUES
-('lbianchi', 'Segnali Biomedici', '2025-03-11', '15:00:00'),
-('lbianchi', 'Segnali Biomedici', '2025-03-18', '15:00:00'),
-('lbianchi', 'Bioingegneria Base', '2025-03-13', '16:00:00'),
-('mrossi', 'Tecnologie Web 2025', '2025-03-14', '14:00:00'),
-('mrossi', 'Tecnologie Web 2025', '2025-03-21', '14:00:00'),
-('mrossi', 'Ingegneria Software', '2025-03-15', '10:00:00'),
-('gconti', 'Ricerca Operativa Base', '2025-03-18', '16:00:00'),
-('fneri', 'Ottimizzazione Avanzata', '2025-03-12', '14:00:00'),
-('fneri', 'Ottimizzazione Avanzata', '2025-03-19', '14:00:00'),
-('fneri', 'Elaborazione Segnali Elettronici', '2025-03-13', '15:00:00'),
-('fneri', 'Elaborazione Segnali Elettronici', '2025-03-20', '15:00:00'),
-('fneri', 'Elettronica Digitale Base', '2025-03-14', '16:00:00'),
-('gconti', 'Algoritmi Avanzati', '2025-03-16', '14:00:00'),
-('gconti', 'Algoritmi Avanzati', '2025-03-23', '14:00:00'),
-('gconti', 'Big Data Lab', '2025-03-17', '15:00:00'),
-('mrossi', 'Basi di Dati Studio', '2025-03-18', '16:00:00'),
-('mrossi', 'Basi di Dati Studio', '2025-03-25', '16:00:00');
+('lbianchi', 'Segnali Biomedici', '2026-01-11', '15:00:00'),
+('lbianchi', 'Segnali Biomedici', '2026-01-18', '15:00:00'),
+('lbianchi', 'Bioingegneria Base', '2026-01-13', '16:00:00'),
+('mrossi', 'Tecnologie Web 2025', '2026-01-14', '14:00:00'),
+('mrossi', 'Tecnologie Web 2025', '2026-01-21', '14:00:00'),
+('mrossi', 'Ingegneria Software', '2026-01-15', '10:00:00'),
+('gconti', 'Ricerca Operativa Base', '2026-01-18', '16:00:00'),
+('fneri', 'Ottimizzazione Avanzata', '2026-01-12', '14:00:00'),
+('fneri', 'Ottimizzazione Avanzata', '2026-01-19', '14:00:00'),
+('fneri', 'Elaborazione Segnali Elettronici', '2026-01-13', '15:00:00'),
+('fneri', 'Elaborazione Segnali Elettronici', '2026-01-20', '15:00:00'),
+('fneri', 'Elettronica Digitale Base', '2026-01-14', '16:00:00'),
+('gconti', 'Algoritmi Avanzati', '2026-01-16', '14:00:00'),
+('gconti', 'Algoritmi Avanzati', '2026-01-23', '14:00:00'),
+('gconti', 'Big Data Lab', '2026-01-17', '15:00:00'),
+('mrossi', 'Basi di Dati Studio', '2026-01-18', '16:00:00'),
+('mrossi', 'Basi di Dati Studio', '2026-01-25', '16:00:00');
 
 -- =============================
 --           MATERIALE
