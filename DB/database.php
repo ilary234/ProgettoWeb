@@ -122,10 +122,11 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
-
+    public function updatePassword($username, $newPassword) {
+        $stmt = $this->db->prepare("UPDATE Utente SET Password = ? WHERE Username = ?");
+        $stmt->bind_param("ss", $newPassword, $username);
+        return $stmt->execute();
+    }
 }
-
-
-
 
 ?>

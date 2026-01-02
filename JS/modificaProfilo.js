@@ -81,7 +81,5 @@ async function saveProfile(e) {
     }
 
     alert("Profilo aggiornato correttamente ✅");
-    setTimeout(() => {
-        window.location.href = "/ProgettoWeb/areaRiservata.php";
-    }, 100);
+    window.location.replace("/ProgettoWeb/areaRiservata.php");
 }

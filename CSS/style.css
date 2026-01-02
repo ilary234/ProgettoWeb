@@ -199,7 +199,7 @@ body {
     padding-bottom: 80px; /* Spazio per footer fisso */
 }
 
-main > section > form#editProfileForm {
+main > section > form#editProfileForm, main > section > form#changePasswordForm {
     border-bottom: none;
 }
 

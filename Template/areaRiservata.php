@@ -13,7 +13,7 @@
                 <a href="modificaProfilo.php" class="btn btn-outline-secondary">✏️</a>
 
                 <!-- Cambia password -->
-                <a href="cambia_password.php" class="btn btn-outline-primary">Cambia password</a>
+                <a href="cambiaPassword.php" class="btn btn-outline-primary">Cambia password</a>
 
                 <!-- Logout -->
                 <a href="logout.php" class="btn btn-outline-danger">➜]</a>
