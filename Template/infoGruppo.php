@@ -39,7 +39,6 @@
             <p><?php echo $gruppo[0]["AdminGruppo"]?></p>
             <p>Luogo: <?php echo $gruppo[0]["LuogoIncontro"]?></p><br>
             <section class="prossimo-incontro">
-                <h2>Prossimo incontro: </h2>
             </section>
         </section>
     </div>

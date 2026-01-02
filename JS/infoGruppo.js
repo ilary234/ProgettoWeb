@@ -42,8 +42,14 @@ function renderCalendar() {
     }
 
     document.querySelector(".giorni").innerHTML = days;
-    document.querySelector(".prossimo-incontro").innerHTML += `<p>Data: ${meetingsCurrentMonth[0]["DataIncontro"]}</p>
+    if(meetingsCurrentMonth.length > 0) {
+        document.querySelector(".prossimo-incontro").innerHTML = `<h2>Prossimo incontro: </h2>
+                <p>Data: ${meetingsCurrentMonth[0]["DataIncontro"]}</p>
                 <p>Ora: ${meetingsCurrentMonth[0]["Ora"].substring(0, 5)}</p>`;
+    } else {
+        document.querySelector(".prossimo-incontro").innerHTML = `<h2>Prossimo incontro: </h2>
+                <p>Nessun incontro previsto per questo mese</p>`;
+    }
 }
 
 async function getStartData() {
