@@ -1,6 +1,6 @@
 <?php
     require_once 'bootstrap.php';
-    $templateParams["nome"] = "Template/infoGruppo.php";
+    $templateParams["nome"] = "Template/info-Gruppo.php";
     $templateParams["js"] = array("JS/infoGruppo.js");
     if(isset($_GET["nomeGruppo"]) && isset($_GET["admin"])) {
         $gruppo = $dbh->getGroupData($_GET["admin"], $_GET["nomeGruppo"]);

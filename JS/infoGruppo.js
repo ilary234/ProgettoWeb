@@ -43,9 +43,10 @@ function renderCalendar() {
 
     document.querySelector(".giorni").innerHTML = days;
     if(meetingsCurrentMonth.length > 0) {
+        let nextMeeting = meetingsCurrentMonth.filter(m => Number.parseInt(m["DataIncontro"].split("-")[2]) > date.getDate())[0];
         document.querySelector(".prossimo-incontro").innerHTML = `<h2>Prossimo incontro: </h2>
-                <p>Data: ${meetingsCurrentMonth[0]["DataIncontro"]}</p>
-                <p>Ora: ${meetingsCurrentMonth[0]["Ora"].substring(0, 5)}</p>`;
+                <p>Data: ${nextMeeting["DataIncontro"]}</p>
+                <p>Ora: ${nextMeeting["Ora"].substring(0, 5)}</p>`;
     } else {
         document.querySelector(".prossimo-incontro").innerHTML = `<h2>Prossimo incontro: </h2>
                 <p>Nessun incontro previsto per questo mese</p>`;
