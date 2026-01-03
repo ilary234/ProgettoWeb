@@ -34,7 +34,6 @@ async function getStartData() {
 
 function getCategoriesOptions() {
     let select = `<option value="--">--</option>`;
-    // categorie è array di oggetti {Categoria: 'Domanda'}, {Categoria: 'Offerta'}
     categorie.forEach(cat => {
         select += `<option value="${cat.Categoria}">${cat.Categoria}</option>`;
     });

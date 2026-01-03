@@ -53,3 +53,17 @@
         ?>
     </body>
 </html>
+<script>
+    function updateFooterHeight() {
+        const footer = document.querySelector('footer');
+        if (footer) {
+            document.documentElement.style.setProperty(
+                '--footer-height',
+                footer.offsetHeight + 'px'
+            );
+        }
+    }
+
+    window.addEventListener('load', updateFooterHeight);
+    window.addEventListener('resize', updateFooterHeight);
+</script>

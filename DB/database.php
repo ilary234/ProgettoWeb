@@ -60,13 +60,11 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertCommento($idAnnuncio, $username, $testo) {
-        $data = date("Y-m-d");
-        $ora = date("H:i:s");
-        $stmt = $this->db->prepare("INSERT INTO Commento (Username, Id_annuncio, DataPubblicazione, Ora, Testo) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisss", $username, $idAnnuncio, $data, $ora, $testo);
+    public function insertCommento($username, $idAnnuncio, $testo) {
+        $stmt = $this->db->prepare("INSERT INTO Commento (Username, Id_annuncio, DataPubblicazione, Ora, Testo) VALUES (?, ?, CURDATE(), CURTIME(), ?)");
+        $stmt->bind_param("sis", $username, $idAnnuncio, $testo);
         return $stmt->execute();
-    } 
+    }
 
     public function getUserByUsername($username) {
         $stmt = $this->db->prepare("SELECT * FROM Utente WHERE Username = ?");

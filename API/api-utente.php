@@ -1,7 +1,6 @@
 <?php
     require_once '../bootstrap.php';
 
-
     if (!isset($_SESSION['username'])) {
         http_response_code(401);
         echo json_encode(["error" => "Non autenticato"]);
