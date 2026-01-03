@@ -1,44 +1,49 @@
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
+* { 
+    font-family: Arial, Helvetica, sans-serif; 
+    box-sizing: border-box; 
+} 
+
+html, body { 
+    height: 100%; 
 }
 
-html, body {
-    height: 100%;
-}
+body{ 
+    display: flex; 
+    flex-direction: column; 
+    background-color: #fffef6; 
+    padding-top: 40px; 
+} 
 
-body{
-    display: flex;
-    flex-direction: column;
-    background-color: #fffef6;
-}
-
-main {
-    flex: 1 0 auto;
-}
+main { 
+    flex: 1 0 auto; 
+    overflow-y: auto; 
+    padding-bottom: var(--footer-height);
+} 
 
 .col-12 {
     padding: 0;
 }
 
-nav {
-    width: 100%;
+nav { 
+    width: 100%; 
     background-color: #3f5788;
+    color: #fffef6;
 }
 
 nav .nav-item {
-    padding: 0;
-}
+    padding: 0; 
+} 
 
-nav .nav-link {
-    color: #fffef6;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav .nav-link:hover {
-    background-color: #9cbce7;
-    color: black;
-}
+nav .nav-link { 
+    color: #fffef6; 
+    transition: background-color 0.3s, 
+    color 0.3s; 
+} 
+    
+nav .nav-link:hover { 
+    background-color: #9cbce7; 
+    color: black; 
+} 
 
 main nav {
     background-color: #fffef6;
@@ -54,20 +59,25 @@ main nav .nav-link:hover {
     background-color: #9cbce7;
 }
 
-main > section > form {
-    border-bottom: 2px solid #3f5788;
-    padding: 0.5%;
-}
+.pagina-annuncio { 
+    flex: 1; 
+    display: flex; 
+} 
+
+main > section > form { 
+    padding: 1%; 
+    border-bottom: 2px solid #3f5788; 
+} 
 
 main > section > form select {
     background-color: #fffef6;
     border-radius: 8px;
 }
 
-.row {
-    width: 100%;
-    margin: 0;
-}
+.row { 
+    width: 100%; 
+    margin: 0; 
+} 
 
 .flex-container {
     display: flex;
@@ -89,9 +99,9 @@ main > section > form select {
     transition: background-color 0.3s;    
 }
 
-.gruppo:hover {
-    background-color: #9cbce7;
-}
+.gruppo:hover { 
+    background-color: #9cbce7; 
+} 
 
 h2, p {
     margin: 1% 0;
@@ -132,6 +142,17 @@ main button {
 main button:hover {
     background-color: #9cbce7;
     color: black;
+}
+
+.btn.btn-primary {
+    border-radius: 8px; 
+    border: 1px solid #3f5788; 
+    background-color: #3f5788; 
+    color: #fffef6; 
+    cursor: pointer; 
+    padding: 1% 4%; 
+    display: block;
+    margin-left: auto;
 }
 
 .info-gruppo {
@@ -276,9 +297,233 @@ progress {
     font-size: x-large;
 }
 
+.annuncio { 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    width: 300px; 
+    height: 200px; 
+    border-radius: 8px; 
+    border: 2px solid #3f5788; 
+    padding: 1%; margin: 2%; 
+    transition: background-color 0.3s; 
+} 
+
+.annuncio:hover { 
+    background-color: #9cbce7; 
+} 
+
+.annuncio h2 { 
+    margin: 1% 0; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+    word-wrap: break-word; 
+} 
+
+.annuncio p { 
+    margin: 1% 0; 
+    font-weight: bold; 
+} 
+
+.annuncio a { 
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    color: black; 
+    font-weight: bold; 
+} 
+
+.annuncio-dettagli { 
+    padding: 20px; 
+} 
+
+.annuncio-dettagli h1 { 
+    color: #3f5788; margin-bottom: 20px; 
+} 
+
+.descrizione { 
+    margin-top: 20px; 
+} 
+
+.col-md-6 { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+} 
+
+.pagina-annuncio.col-md-6:first-child { 
+    border-right: 1px solid #ddd; 
+} 
+
+.commenti-sezione { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+} 
+
+.commenti-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-bottom: 10px; 
+    border-bottom: 1px solid #ddd; 
+} 
+
+.commenti-lista { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 15px; 
+    background-color: #fffef6; 
+} 
+
+.commento { 
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    padding: 10px; 
+    margin-bottom: 12px; 
+} 
+
+.commento-meta { 
+    font-size: 0.85rem; 
+    font-weight: bold; 
+    color: #3f5788; 
+    margin-bottom: 4px; 
+} 
+
+.commento-testo { 
+    font-size: 0.95rem; 
+} 
+
+.aggiungi-commento { 
+    border-top: 1px solid #ddd; 
+    padding: 12px; 
+    background-color: #fffef6; 
+    margin-top: auto;
+} 
+
+.aggiungi-commento form { 
+    display: flex; 
+    gap: 10px; 
+} 
+
+.aggiungi-commento textarea { 
+    flex: 1; 
+    height: 38px; 
+    resize: none; 
+} 
+
+.aggiungi-commento button { 
+    padding: 0 16px; 
+    border: none; 
+    border-radius: 6px; 
+    background-color: #3f5788; 
+    color: white; 
+    cursor: pointer; 
+} 
+
+header { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+} 
+
+footer { 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    background-color: #3f5788; 
+    color: #fffef6;
+    z-index: 1000; 
+} 
+
+main > section > form#editProfileForm, main > section > form#changePasswordForm { 
+    border-bottom: none; 
+} 
+
+.card.position-relative .card-body { 
+    padding-top: 3.5rem;
+} 
+
+.pagina-annuncio { 
+    height: calc(100vh - 40px - var(--footer-height) - 25px); 
+    overflow: hidden; 
+}
+
 @media (max-width: 600px) {
     .info-gruppo {
         flex-direction: column;
         align-items: center;
     }
+}
+
+@media (max-width: 768px) { 
+    .pagina-annuncio {
+        height: calc(100vh - 40px - var(--footer-height) - 25px);
+        overflow: hidden;
+    }
+
+    .commenti-sezione { 
+        position: fixed; 
+        bottom: var(--footer-height); 
+        left: 0; 
+        right: 0; 
+        height: 70%; 
+        background-color: #fff; 
+        border-top: 2px solid #3f5788; 
+        transform: translateY(calc(100% - 52px));
+        transition: transform 0.3s ease; 
+        z-index: 999; 
+        display: flex; 
+        flex-direction: column; 
+    } 
+    
+    .commenti-sezione.open { 
+        transform: translateY(0); 
+    } 
+    
+    .commenti-toggle { 
+        height: 50px; 
+        flex-shrink: 0; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 0 20px; 
+        font-weight: bold; 
+        cursor: pointer; 
+        background-color: #fff; 
+        border-bottom: 1px solid #ddd; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    } 
+    
+    .toggle-icon { 
+        transition: transform 0.3s ease; 
+    } 
+    
+    .commenti-sezione.open .toggle-icon { 
+        transform: rotate(180deg); 
+    } 
+    
+    .commenti-lista { 
+        flex: 1; 
+        overflow-y: auto; 
+    } 
+    
+    .form-wrapper { 
+        padding: 0 20%; 
+    } 
+    
+    .card .btn { 
+        font-size: 0.75rem; 
+        padding: 3px 6px; 
+    } 
+    
+    .card-body { 
+        display: flex; 
+        flex-direction: column; 
+    } 
 }
