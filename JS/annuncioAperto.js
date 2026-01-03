@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("JS CARICATO");
+
     if (!ANNUNCIO_ID) {
         console.error("ID annuncio mancante");
         return;
@@ -10,19 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("commentForm")
         ?.addEventListener("submit", saveComment);
-
-    document.addEventListener("click", function (e) {
-        const toggle = e.target.closest(".commenti-toggle");
-        if (!toggle) return;
-
-        const sezione = document.querySelector(".commenti-sezione");
-        if (!sezione) return;
-
-        sezione.classList.toggle("open");
-        console.log("CLICK → open:", sezione.classList.contains("open"));
-    });
-
-
 });
 
 async function loadAnnuncio(id) {
@@ -58,7 +46,6 @@ async function loadCommenti(id) {
     document.getElementById("commenti-title").textContent =
         `Commenti (${commenti.length})`;
 
-    // Aggiorna anche il conteggio nella toggle bar per mobile
     const commentiCount = document.getElementById("commenti-count");
     if (commentiCount) {
         commentiCount.textContent = `Commenti (${commenti.length})`;

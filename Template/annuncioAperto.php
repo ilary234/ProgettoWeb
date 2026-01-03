@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6 commenti-col">
             <div class="commenti-sezione">
-                <div class="commenti-toggle d-md-none">
+                <div class="commenti-toggle d-md-none" onclick="toggleComments()">
                     <span id="commenti-count"></span>
                     <span class="toggle-icon">⌃</span>
                 </div>
@@ -33,3 +33,11 @@
         </div>
     </div>
 </section>
+<script>
+function toggleComments() {
+    const drawer = document.querySelector('.commenti-sezione');
+    if (!drawer) return;
+
+    drawer.classList.toggle('open');
+}
+</script>
