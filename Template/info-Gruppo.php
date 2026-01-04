@@ -3,8 +3,8 @@
     <div class="row">
         <nav class="col-12">
             <ul class="row nav text-center">
-                <li class="nav-item col-4"><a class="nav-link" href="#">Info</a></li>
-                <li class="nav-item col-4"><a class="nav-link" href="#">Materiali</a></li>
+                <li class="nav-item col-4"><a class="nav-link attivo" href="#">Info</a></li>
+                <li class="nav-item col-4"><a class="nav-link" href="materialeGruppo.php?nomeGruppo=<?php echo $gruppo[0]["NomeGruppo"]?>&admin=<?php echo $gruppo[0]["AdminGruppo"]?>">Materiale</a></li>
                 <li class="nav-item col-4"><a style="border-right: 0px;" class="nav-link" href="#">Inscriviti</a></li>
             </ul>
         </nav>

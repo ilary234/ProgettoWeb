@@ -54,6 +54,20 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getGroupMaterial($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT Username, Titolo, DataPubblicazione, Tipo, Percorso FROM Materiale WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertMaterial($username, $admin, $nomeGruppo, $titolo, $type, $file) {
+        $stmt = $this->db->prepare("INSERT INTO Materiale VALUES (?, ?, ?, ?, CURDATE(), ?, ?)");
+        $stmt->bind_param('ssssss', $username, $admin, $nomeGruppo, $titolo, $type, $file);
+        return $stmt->execute();
+    }
+
     public function getCategories() {
         $stmt = $this->db->prepare("SELECT DISTINCT Categoria FROM Annuncio");
         $stmt->execute();

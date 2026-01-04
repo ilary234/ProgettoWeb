@@ -55,8 +55,8 @@ main nav .nav-link {
     border-right: 2px solid #3f5788;
 }
 
-main nav .nav-link:hover {
-    background-color: #9cbce7;
+main nav .nav-link.attivo {
+    background-color: #9cbce7; 
 }
 
 .pagina-annuncio { 
@@ -86,7 +86,7 @@ main > section > form select {
     justify-content: center;
 }
 
-.gruppo {
+.gruppo, .materiale {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -99,6 +99,13 @@ main > section > form select {
     transition: background-color 0.3s;    
 }
 
+.materiale {
+    width: 17em;
+    height: fit-content;
+    background-color: white;
+    border-color: #ccc;
+}
+
 .gruppo:hover { 
     background-color: #9cbce7; 
 } 
@@ -107,13 +114,13 @@ h2, p {
     margin: 1% 0;
 }
 
-.gruppo h2{
+.gruppo h2, .materiale h2{
     font-size: medium;
     font-weight: bold;
     word-wrap: break-word;
 }
 
-.gruppo p {
+.gruppo p, .materiale p {
     font-size: small;
 }
 
@@ -125,7 +132,7 @@ h2, p {
     transition: font-weight 0.3s;
 }
 
-main button {
+main > button {
     border-radius: 50%;
     border: 1px solid #3f5788;
     background-color: #3f5788;
@@ -139,7 +146,7 @@ main button {
     transition: background-color 0.3s;
 }
 
-main button:hover {
+main > button:hover {
     background-color: #9cbce7;
     color: black;
 }
@@ -161,7 +168,8 @@ main button:hover {
 }
 
 .calendar-wrapper {
-    border: 2px solid #585858;
+    background-color: white;
+    border: 2px solid #ccc;
     border-radius: 16px;
     width: 300px;
     min-width: 300px;
@@ -267,7 +275,7 @@ main button:hover {
     flex-direction: column;
     flex-wrap: wrap;
     background-color: white;
-    border: 2px solid #585858;
+    border: 2px solid #ccc;
     border-radius: 16px;
     padding: 2%;
     margin: 2%;
@@ -295,6 +303,18 @@ progress {
 
 .dati-gruppo h1 {
     font-size: x-large;
+}
+
+.anteprima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ddd;
+}
+
+.anteprima > img{
+    max-width: 40%;
+    max-height: 40%;
 }
 
 .annuncio { 

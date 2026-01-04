@@ -73,9 +73,6 @@ async function getStartData() {
         gruppi = await responseGroup.json();
         corsi = await responseCourse.json();
         materie = await responseSubject.json();
-        console.log(gruppi);
-        console.log(corsi);
-        console.log(materie);
         document.getElementById("corsi").innerHTML = getCourses();
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppi);
     } catch (error) {

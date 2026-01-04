@@ -43,7 +43,12 @@ function renderCalendar() {
 
     document.querySelector(".giorni").innerHTML = days;
     if(meetingsCurrentMonth.length > 0) {
-        let nextMeeting = meetingsCurrentMonth.filter(m => Number.parseInt(m["DataIncontro"].split("-")[2]) > date.getDate())[0];
+        let nextMeeting;
+        if(currentMonth == new Date().getMonth()) {
+            nextMeeting = meetingsCurrentMonth.filter(m => Number.parseInt(m["DataIncontro"].split("-")[2]) > date.getDate())[0];
+        } else {
+            nextMeeting = meetingsCurrentMonth[0];
+        }
         document.querySelector(".prossimo-incontro").innerHTML = `<h2>Prossimo incontro: </h2>
                 <p>Data: ${nextMeeting["DataIncontro"]}</p>
                 <p>Ora: ${nextMeeting["Ora"].substring(0, 5)}</p>`;
@@ -55,14 +60,13 @@ function renderCalendar() {
 
 async function getStartData() {
     const urlParams = new URLSearchParams(window.location.search);
-    let urlMettingsGroup = `API/api-incontriGruppo.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`;
+    let urlMettingsGroup = `API/api-incontri-gruppo.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`;
     try {
         const response = await fetch(urlMettingsGroup);
         if(!response.ok){
             throw new Error("Response Group status: " + response.status);
         }
         meetings = await response.json();
-        console.log(meetings);
         renderCalendar();
     } catch (error) {
         console.log(error.message);
