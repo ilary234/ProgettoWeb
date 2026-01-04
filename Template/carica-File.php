@@ -15,7 +15,8 @@
                     <label for="uploadFile" class="form-label">File</label>
                     <input type="file" class="form-control" id="uploadFile" name="uploadFile" required>
                 </div>
-                <div class="d-grid">
+                <div class="flex-container">
+                    <button type="button" id="cancel" class="btn btn-primary material-icons">arrow_back</button>
                     <button type="submit" id="caricaFile" class="btn btn-primary btn-submit">Invia</button>
                 </div>
             </form>

@@ -68,6 +68,12 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function deleteMaterial($admin, $nomeGruppo, $titolo) {
+        $stmt = $this->db->prepare("DELETE FROM Materiale WHERE AdminGruppo = ? AND NomeGruppo = ? AND Titolo = ?");
+        $stmt->bind_param('sss',$admin, $nomeGruppo, $titolo);
+        return $stmt->execute();
+    }
+
     public function getCategories() {
         $stmt = $this->db->prepare("SELECT DISTINCT Categoria FROM Annuncio");
         $stmt->execute();

@@ -6,6 +6,7 @@
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         if(isset($_FILES["uploadFile"]) && $_FILES["uploadFile"]["error"] == 0) {
             $dir = "../Upload/";
+            $base = basename($_FILES["uploadFile"]["name"]);
             $file = $dir . basename($_FILES["uploadFile"]["name"]);
             $type = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
@@ -16,13 +17,13 @@
                 $i = 1;
                 while(file_exists($file)) {
                     $pathinfo = pathinfo($_FILES["uploadFile"]["name"]);
-                    $base = $pathinfo["filename"];
-                    $file = $dir . $base . "($i)." . $type;
+                    $base = $pathinfo["filename"] . "($i)." . $type;
+                    $file = $dir . $base;
                     $i++;
                 }
                 if(move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $file)) {
                     try {
-                        $result = $dbh->insertMaterial($_POST["username"], $_POST["admin"], $_POST["nomeGruppo"], $_POST["titolo"], $type, $file);
+                        $result = $dbh->insertMaterial($_POST["username"], $_POST["admin"], $_POST["nomeGruppo"], $_POST["titolo"], $type, $base);
                         if ($result) {
                             $success = true;
                         }

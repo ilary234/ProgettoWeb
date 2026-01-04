@@ -1,26 +1,79 @@
+const urlParams = new URLSearchParams(window.location.search);
+const imgdir = "./Upload/Preview/"
+const filedir = "./Upload/"
+let files;
+let fileDaEliminare, titoloDaEliminare;
+
 document.querySelector(".button").addEventListener("click", () => window.location.href = `caricaFile.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`);
 
-const urlParams = new URLSearchParams(window.location.search);
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("delete-btn")) {
+        event.preventDefault();
+
+        titoloDaEliminare = event.target.dataset.titolo;
+        fileDaEliminare = event.target.dataset.file;
+        new bootstrap.Modal(document.getElementById("confermaEliminazione")).show();
+    }
+})
+
+document.querySelector(".confirmDelete").addEventListener("click", () => {
+    document.querySelector(".confirmDelete").blur();
+    deleteMateriale(titoloDaEliminare, fileDaEliminare);
+})
+
+document.querySelector(".calcelDelete").addEventListener("click", () => {
+    document.querySelector(".calcelDelete").blur();
+})
+
+document.querySelector(".btn-close").addEventListener("click", () => {
+    document.querySelector(".btn-close").blur();
+})
 
 function getFiles() {
     let section = ``;
     for (let i = 0; i < files.length; i++) {
         section += `<div class="materiale">
                 <div class="anteprima">
-                <img src="${imgdir}png.png" alt="Anteprima file">
+                <a href="#" class="btn btn-secondary material-icons delete-btn" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>
+                <img src="${imgdir}png.png" alt="Estensione file ${files[i]["Tipo"]}">
                 </div>
                 <h2>${files[i]["Titolo"]}</h2>
                 <p>${files[i]["Username"]}  -  ${files[i]["DataPubblicazione"]}</p>
-                <button class="btn btn-primary">Scarica</button>
+                <a href="${filedir}${files[i]["Percorso"]}" class="download" download>Scarica</a>
             </div>`;
     }
     return section;
-    //Aggiungi tasto elimina
     //Correggi anteprima
-    //Fai download
 }
 
-async function getStartData() {
+async function deleteMateriale(titolo, fileName) {
+    let urlDelete = "API/api-delete-file.php";
+    const formData = new FormData();
+    formData.append("titolo", titolo);
+    formData.append("fileName", fileName);
+    formData.append("admin", urlParams.get('admin'));
+    formData.append("nomeGruppo", urlParams.get('nomeGruppo'));
+    try {
+        const response = await fetch(urlDelete, {
+            method: "POST",
+            body: formData
+        });
+        if(!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+        let deleteRes = await response.json();
+        console.log(deleteRes);
+        if(!deleteRes["success"]) {
+            console.log(deleteRes["error"]);
+        } else {
+            getFileData();
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getFileData() {
     let urlFiles = `API/api-materiale-gruppo.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`;
     try {
         const responseFile = await fetch(urlFiles);
@@ -35,6 +88,4 @@ async function getStartData() {
     }    
 }
 
-const imgdir = "./Upload/Preview/"
-let files;
-getStartData();
+getFileData();

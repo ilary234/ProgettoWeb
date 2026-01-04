@@ -10,4 +10,21 @@
     </div>
 </header>
 <section class="flex-container"></section>
-<button class="button">+</button>
+<button class="button material-icons">add</button>
+<div class="modal fade" id="confermaEliminazione" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confermaEliminazioneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confermaEliminazioneLabel">Conferma eliminazione file</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Sei sicuro di voler eliminare il file?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary calcelDelete" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary confirmDelete" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
