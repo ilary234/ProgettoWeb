@@ -5,7 +5,7 @@
 
     if (isset($_POST["nomeGruppo"]) && isset($_POST["admin"]) && isset($_POST["titolo"]) && isset($_POST["fileName"])) {
         try {
-            $result = $dbh->deleteMaterial($_POST["admin"], $_POST["nomeGruppo"], $_POST["titolo"]);
+            $result = $dbh->deleteMaterial($_SESSION["username"], $_POST["admin"], $_POST["nomeGruppo"], $_POST["titolo"]);
             if ($result) {
                 $success = true;
             }

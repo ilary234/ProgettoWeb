@@ -2,9 +2,94 @@ let meetings;
 let date = new Date()
 let currentMonth = date.getMonth();
 let currentYear = date.getFullYear();
+const urlParams = new URLSearchParams(window.location.search);
 const currentDate = document.querySelector(".data-corrente");
 const monthsName = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
 const monthsNumber = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+
+document.querySelector(".gestioneIscrizione").addEventListener("click", (event) => {
+    event.preventDefault();
+    if(document.querySelector("#username").innerText != "") {
+        new bootstrap.Modal(document.getElementById("confermaAzione")).show();
+    } else {
+        new bootstrap.Modal(document.getElementById("loginNecessario")).show();
+    }
+});
+
+document.querySelector(".confirm").addEventListener("click", () => {
+    document.querySelector(".confirm").blur();
+    if(document.querySelector(".modal-body > p").id == "iscrizione") {
+        iscrizione();
+    } else {
+        disiscrizione();
+    }
+})
+
+document.querySelector(".ok").addEventListener("click", () => {
+    document.querySelector(".ok").blur();
+})
+
+document.querySelector(".calcel").addEventListener("click", () => {
+    document.querySelector(".calcel").blur();
+})
+
+document.querySelector(".btn-close").addEventListener("click", () => {
+    document.querySelector(".btn-close").blur();
+})
+
+document.querySelector(".close").addEventListener("click", () => {
+    document.querySelector(".close").blur();
+})
+
+async function disiscrizione() {
+    let urlDisiscrizione = "API/api-disiscrizione-gruppo.php";
+    const formData = new FormData();
+    formData.append("username", document.querySelector("#username").innerText);
+    formData.append("admin", urlParams.get('admin'));
+    formData.append("nomeGruppo", urlParams.get('nomeGruppo'));
+    try {
+        const response = await fetch(urlDisiscrizione, {
+            method: "POST",
+            body: formData
+        });
+        if(!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+        let DisiscrizioneRes = await response.json();
+        if(!DisiscrizioneRes["success"]) {
+            console.log(DisiscrizioneRes["error"]);
+        } else {
+            location.reload();
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function iscrizione() {
+    let urlIscrizione = "API/api-iscrizione-gruppo.php";
+    const formData = new FormData();
+    formData.append("username", document.querySelector("#username").innerText);
+    formData.append("admin", urlParams.get('admin'));
+    formData.append("nomeGruppo", urlParams.get('nomeGruppo'));
+    try {
+        const response = await fetch(urlIscrizione, {
+            method: "POST",
+            body: formData
+        });
+        if(!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+        let IscrizioneRes = await response.json();
+        if(!IscrizioneRes["success"]) {
+            console.log(IscrizioneRes["error"]);
+        } else {
+            location.reload();
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function renderCalendar() {
     currentDate.innerText = `${monthsName[currentMonth]} ${currentYear}`;
@@ -59,7 +144,6 @@ function renderCalendar() {
 }
 
 async function getStartData() {
-    const urlParams = new URLSearchParams(window.location.search);
     let urlMettingsGroup = `API/api-incontri-gruppo.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`;
     try {
         const response = await fetch(urlMettingsGroup);

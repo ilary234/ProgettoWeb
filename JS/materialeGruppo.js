@@ -25,17 +25,63 @@ document.querySelector(".calcelDelete").addEventListener("click", () => {
     document.querySelector(".calcelDelete").blur();
 })
 
-document.querySelector(".btn-close").addEventListener("click", () => {
-    document.querySelector(".btn-close").blur();
+document.querySelector(".closeDelete").addEventListener("click", () => {
+    document.querySelector(".closeDelete").blur();
 })
+
+document.querySelector(".disiscriviti").addEventListener("click", function(event) {
+    event.preventDefault();
+    new bootstrap.Modal(document.getElementById("confermaAzione")).show();
+})
+
+document.querySelector(".confirmAzione").addEventListener("click", () => {
+    document.querySelector(".confirmAzione").blur();
+    disiscrizione();
+})
+
+document.querySelector(".calcelAzione").addEventListener("click", () => {
+    document.querySelector(".calcelAzione").blur();
+})
+
+document.querySelector(".closeAzione").addEventListener("click", () => {
+    document.querySelector(".closeAzione").blur();
+})
+
+async function disiscrizione() {
+    let urlDisiscrizione = "API/api-disiscrizione-gruppo.php";
+    const formData = new FormData();
+    formData.append("username", document.querySelector("#username").innerText);
+    formData.append("admin", urlParams.get('admin'));
+    formData.append("nomeGruppo", urlParams.get('nomeGruppo'));
+    try {
+        const response = await fetch(urlDisiscrizione, {
+            method: "POST",
+            body: formData
+        });
+        if(!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+        let DisiscrizioneRes = await response.json();
+        console.log(DisiscrizioneRes);
+        if(!DisiscrizioneRes["success"]) {
+            console.log(DisiscrizioneRes["error"]);
+        } else {
+            window.location.href = `infoGruppo.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function getFiles() {
     let section = ``;
     for (let i = 0; i < files.length; i++) {
         section += `<div class="materiale">
-                <div class="anteprima">
-                <a href="#" class="btn btn-secondary material-icons delete-btn" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>
-                <img src="${imgdir}png.png" alt="Estensione file ${files[i]["Tipo"]}">
+                <div class="anteprima">`;
+        if(document.querySelector("#username").innerText == files[i]["Username"]) {
+           section +=  `<a href="#" class="btn btn-secondary material-icons delete-btn" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>`;
+        }
+        section += `<img src="${imgdir}${files[i]["Tipo"]}.png" alt="Estensione file ${files[i]["Tipo"]}">
                 </div>
                 <h2>${files[i]["Titolo"]}</h2>
                 <p>${files[i]["Username"]}  -  ${files[i]["DataPubblicazione"]}</p>
@@ -43,7 +89,6 @@ function getFiles() {
             </div>`;
     }
     return section;
-    //Correggi anteprima
 }
 
 async function deleteMateriale(titolo, fileName) {
@@ -62,7 +107,6 @@ async function deleteMateriale(titolo, fileName) {
             throw new Error("Response: " + response.status);
         }
         let deleteRes = await response.json();
-        console.log(deleteRes);
         if(!deleteRes["success"]) {
             console.log(deleteRes["error"]);
         } else {
@@ -81,7 +125,6 @@ async function getFileData() {
             throw new Error("Response File status: " + responseFile.status);
         }
         files = await responseFile.json();
-        console.log(files);
         document.querySelector("main section:last-of-type").innerHTML = getFiles(files);
     } catch (error) {
         console.log(error.message);

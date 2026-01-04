@@ -59,6 +59,10 @@ main nav .nav-link.attivo {
     background-color: #9cbce7; 
 }
 
+main nav .nav-link.disabled {
+    background-color: #ddd; 
+}
+
 .pagina-annuncio { 
     flex: 1; 
     display: flex; 
