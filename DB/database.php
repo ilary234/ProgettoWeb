@@ -125,6 +125,12 @@ class DatabaseHelper{
         $stmt->bind_param("ss", $newPassword, $username);
         return $stmt->execute();
     }
+
+    public function insertAnnuncio($username, $titolo, $anteprima, $descrizione, $categoria, $materia) {
+        $stmt = $this->db->prepare("INSERT INTO Annuncio (Categoria, Materia, Titolo, DataPubblicazione, Username, Anteprima, Descrizione) VALUES (?, ?, ?, CURDATE(), ?, ?, ?)");
+        $stmt->bind_param("sissss", $categoria, $materia, $titolo, $username, $anteprima, $descrizione);
+        return $stmt->execute();
+    }
 }
 
 ?>

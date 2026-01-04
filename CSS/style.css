@@ -254,6 +254,16 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     overflow: hidden; 
 }
 
+.textarea-4 {
+    height: calc(1.5em * 4 + 1rem);
+    resize: none;
+}
+
+.textarea-2 {
+    height: calc(1.5em * 2 + 1rem);
+    resize: none;
+}
+
 @media (max-width: 768px) { 
     .pagina-annuncio {
         height: calc(100vh - 40px - var(--footer-height) - 25px);
