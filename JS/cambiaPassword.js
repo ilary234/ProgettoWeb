@@ -17,6 +17,12 @@ async function changePassword(e) {
         return;
     }
 
+    if (oldPassword === newPassword) {
+        errorBox.innerText = "La nuova password deve essere diversa da quella attuale";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
     const response = await fetch("API/api-cambia-password.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
