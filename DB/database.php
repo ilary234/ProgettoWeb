@@ -30,6 +30,70 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getIscrizione($username, $admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT * FROM Iscrizione WHERE Username = ? AND AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('sss',  $username, $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertIscrizione($username, $admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("INSERT INTO Iscrizione VALUES (?, ?, ?)");
+        $stmt->bind_param('sss',  $admin, $nomeGruppo, $username);
+        return $stmt->execute();
+    }
+
+    public function deleteIscrizione($username, $admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("DELETE FROM Iscrizione WHERE Username = ? AND AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('sss',$username, $admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function getGroupData($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT * FROM Gruppo WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTopics($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT Titolo FROM Argomento WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getMeetings($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT DataIncontro, Ora FROM Incontro WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGroupMaterial($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("SELECT Username, Titolo, DataPubblicazione, Tipo, Percorso FROM Materiale WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss', $admin, $nomeGruppo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertMaterial($username, $admin, $nomeGruppo, $titolo, $type, $file) {
+        $stmt = $this->db->prepare("INSERT INTO Materiale VALUES (?, ?, ?, ?, CURDATE(), ?, ?)");
+        $stmt->bind_param('ssssss', $username, $admin, $nomeGruppo, $titolo, $type, $file);
+        return $stmt->execute();
+    }
+
+    public function deleteMaterial($username, $admin, $nomeGruppo, $titolo) {
+        $stmt = $this->db->prepare("DELETE FROM Materiale WHERE Username = ? AND AdminGruppo = ? AND NomeGruppo = ? AND Titolo = ?");
+        $stmt->bind_param('ssss',$username, $admin, $nomeGruppo, $titolo);
+        return $stmt->execute();
+    }
+
     public function getCategories() {
         $stmt = $this->db->prepare("SELECT DISTINCT Categoria FROM Annuncio");
         $stmt->execute();

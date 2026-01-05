@@ -7,7 +7,7 @@ html, body {
     height: 100%; 
 }
 
-body { 
+body{ 
     display: flex; 
     flex-direction: column; 
     background-color: #fffef6; 
@@ -20,10 +20,18 @@ main {
     padding-bottom: var(--footer-height);
 } 
 
+.col-12 {
+    padding: 0;
+}
+
 nav { 
     width: 100%; 
-    background-color: #3f5788; 
-    color: #fffef6; 
+    background-color: #3f5788;
+    color: #fffef6;
+}
+
+nav .nav-item {
+    padding: 0; 
 } 
 
 nav .nav-link { 
@@ -37,6 +45,24 @@ nav .nav-link:hover {
     color: black; 
 } 
 
+main nav {
+    background-color: #fffef6;
+    border-bottom: 2px solid #3f5788;;
+}
+
+main nav .nav-link {
+    color: black;
+    border-right: 2px solid #3f5788;
+}
+
+main nav .nav-link.attivo {
+    background-color: #9cbce7; 
+}
+
+main nav .nav-link.disabled {
+    background-color: #ddd; 
+}
+
 .pagina-annuncio { 
     flex: 1; 
     display: flex; 
@@ -47,49 +73,265 @@ main > section > form {
     border-bottom: 2px solid #3f5788; 
 } 
 
-main > section > form select { 
-    background-color: #fffef6; 
-} 
+main > section > form select {
+    background-color: #fffef6;
+    border-radius: 8px;
+}
 
 .row { 
     width: 100%; 
     margin: 0; 
 } 
 
-.flex-container { 
-    display: flex; 
-    flex-wrap: wrap; 
-    flex-direction: row; 
-    justify-content: space-evenly; 
-    align-content: space-evenly; 
-} 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
 
-.gruppo { 
-    box-sizing: border-box; 
-    display: inline-block; 
-    border-radius: 8px; 
-    border: 2px solid #3f5788; 
-    padding: 1%; 
-    margin: 2%; 
-    transition: background-color 0.3s; 
-} 
+.gruppo, .materiale {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 20em;
+    height: 150px;
+    border-radius: 8px;
+    border: 2px solid #3f5788;
+    padding: 1%;
+    margin: 2%;
+    transition: background-color 0.3s;    
+}
+
+.materiale {
+    width: 17em;
+    height: fit-content;
+    background-color: white;
+    border-color: #ccc;
+    position: relative;
+}
 
 .gruppo:hover { 
     background-color: #9cbce7; 
 } 
 
-.gruppo p { 
-    margin: 1% 0; 
-    font-weight: bold; 
-} 
+h2, p {
+    margin: 1% 0;
+}
 
-.gruppo button, .btn.btn-primary { 
+.gruppo h2, .materiale h2{
+    font-size: medium;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.gruppo p, .materiale p {
+    font-size: small;
+}
+
+.gruppo a, .materiale .download {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: black;
+    transition: font-weight 0.3s;
+}
+
+main > button {
+    border-radius: 50%;
+    border: 1px solid #3f5788;
+    background-color: #3f5788;
+    color: #fffef6;
+    cursor: pointer;
+    position: fixed;
+    bottom: 17%;
+    right: 3%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s;
+}
+
+main > button:hover {
+    background-color: #9cbce7;
+    color: black;
+}
+
+.btn.btn-primary {
     border-radius: 8px; 
     border: 1px solid #3f5788; 
     background-color: #3f5788; 
     color: #fffef6; 
     cursor: pointer; 
     padding: 1% 4%; 
+    display: block;
+    margin-left: auto;
+}
+
+#cancel {
+    margin-left: 0;
+}
+
+.info-gruppo {
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-wrapper {
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    width: 300px;
+    min-width: 300px;
+    margin: 2%;
+    padding: 2%;
+}
+
+.calendar-wrapper header {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.data-corrente {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.icone {
+    align-content: center;
+}
+
+.icone span {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.icone span:hover {
+    background-color: #9cbce7;
+}
+
+.calendario ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.calendario ul li {
+    position: relative;
+    width: calc(100% / 7);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.calendario .giorni li::before {
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendario .giorni li:hover::before {
+    background-color: #ccc;
+}
+
+.calendario .giorni li {
+    z-index: 1;
+}
+
+.giorni .inattivo {
+    color: #585858;
+}
+
+.giorni .inattivo:hover {
+    color: black;
+}
+
+.giorni .incontro {
+    color: #fffef6;
+}
+
+.giorni .incontro:hover {
+    color: black;
+}
+
+.giorni .attivo::before {
+    background-color: #9cbce7;
+}
+
+.giorni .incontro::before{
+    background-color: #3f5788;
+}
+
+.dati-gruppo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 16px;
+    padding: 2%;
+    margin: 2%;
+    min-width: 200px;
+}
+
+.argomenti-gruppo {
+    padding: 2%;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    margin: 10px 0;
+    accent-color: #3f5788;
+}
+
+.argomenti-gruppo h2, .prossimo-incontro h2, .argomenti-gruppo label, .dati-gruppo h1{
+    margin: 1% 0;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    word-wrap: break-word;
+}
+
+.dati-gruppo h1 {
+    font-size: x-large;
+}
+
+.anteprima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ddd;
+    margin-bottom: 2%;
+}
+
+.anteprima > img{
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.anteprima > a{
+    position: absolute;
+    top: 4%;
+    right: 3%;
+}
     display: block; 
     margin-left: auto; 
     margin-top: 0.5rem; 
@@ -381,6 +623,13 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 .annuncio-actions button {
     padding: 4px 8px;
     font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .info-gruppo {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) { 

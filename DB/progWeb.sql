@@ -68,7 +68,7 @@ create table Materiale (
      `NomeGruppo` varchar(80) not null,
      `Titolo` varchar(100) not null,
      `DataPubblicazione` date not null,
-     `Immagine` blob not null,
+     `Tipo` varchar(20) not null,
      `Percorso` text not null,
      constraint IDMateriale primary key (Username, AdminGruppo, NomeGruppo, Titolo));
 

@@ -4,9 +4,9 @@ document.getElementById("materie").addEventListener("change", filterBySubject);
 function filterByCourse() {
     const index = document.getElementById("corsi").selectedIndex - 1;
     if(index >= 0) {
-        const corso = corsi[index]["Id_Corso"];
-        const materieFiltrate = materie.filter(m => m["Corso"] == corso);
-        const gruppiFiltrati = gruppi.filter(g => g["CorsoLaurea"] == corso);
+        corsoSelezionato = corsi[index]["Id_Corso"];
+        const materieFiltrate = materie.filter(m => m["Corso"] == corsoSelezionato);
+        const gruppiFiltrati = gruppi.filter(g => g["CorsoLaurea"] == corsoSelezionato);
         document.getElementById("materie").innerHTML = getSubjects(materieFiltrate);
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppiFiltrati);
     } else {
@@ -18,11 +18,11 @@ function filterByCourse() {
 function filterBySubject() {
     const index = document.getElementById("materie").selectedIndex - 1;
     if(index >= 0) {
-        const materia = materie[index]["Id_Materia"];
+        const materia = materie.filter(m => m["Corso"] == corsoSelezionato)[index]["Id_Materia"];
         const gruppiFiltrati = gruppi.filter(g => g["Materia"] == materia);
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppiFiltrati);
     } else {
-        document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppi);
+        filterByCourse();
     }
 }
 
@@ -46,12 +46,11 @@ function getGroups(gruppiFiltrati) {
     let section = ``;
     for (let i = 0; i < gruppiFiltrati.length; i++) {
         section += `<div class="gruppo">
-                <p>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</p>
+                <h2>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</h2>
                 <p>Admin: ${gruppiFiltrati[i]["AdminGruppo"]}</p>
                 <p>Iscritti: ${gruppiFiltrati[i]["NumeroPartecipanti"]}</p>
-                <button type="button">Info</button>
+                <a href="infoGruppo.php?nomeGruppo=${gruppiFiltrati[i]["NomeGruppo"]}&admin=${gruppiFiltrati[i]["AdminGruppo"]}">Info</a>
             </div>`;
-        
     }
     return section;
 }
@@ -74,9 +73,6 @@ async function getStartData() {
         gruppi = await responseGroup.json();
         corsi = await responseCourse.json();
         materie = await responseSubject.json();
-        console.log(gruppi);
-        console.log(corsi);
-        console.log(materie);
         document.getElementById("corsi").innerHTML = getCourses();
         document.querySelector("main section:last-of-type").innerHTML = getGroups(gruppi);
     } catch (error) {
@@ -85,4 +81,5 @@ async function getStartData() {
 }
 
 let gruppi, corsi, materie;
+let corsoSelezionato;
 getStartData();
