@@ -358,6 +358,11 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 }
 
 @media (max-width: 768px) { 
+
+    .annuncio-dettagli {
+        padding-bottom: 80px;
+    }
+
     .pagina-annuncio {
         height: calc(100vh - 40px - var(--footer-height) - 25px);
         overflow: hidden;
