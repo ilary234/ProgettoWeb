@@ -97,11 +97,32 @@ main > section > form select {
 
 .gruppo button:hover { 
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.6); 
-} .link { color: #3f5788; } 
+} 
+
+.link { 
+    color: #3f5788; 
+}
+
+.annuncio h2,.annuncio p {
+    margin: 1% 0; 
+    font-weight: bold;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.annuncio p:last-of-type {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /*aggiunto solo perchè come prova avevo scritto un'anteprima lunghissima*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 
 .annuncio { 
     box-sizing: border-box; 
     display: flex; 
+    overflow: hidden;
     flex-direction: column; 
     position: relative; 
     width: 300px; 
@@ -117,15 +138,11 @@ main > section > form select {
 } 
 
 .annuncio h2 { 
-    margin: 1% 0; 
     font-size: 0.9rem; 
-    font-weight: bold; 
     word-wrap: break-word; 
-} 
-
-.annuncio p { 
-    margin: 1% 0; 
-    font-weight: bold; 
+    max-width: calc(100% - 40px); /* spazio per la X */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 } 
 
 .annuncio a { 
@@ -138,6 +155,9 @@ main > section > form select {
 
 .annuncio-dettagli { 
     padding: 20px; 
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
 } 
 
 .annuncio-dettagli h1 { 
@@ -152,6 +172,7 @@ main > section > form select {
     display: flex; 
     flex-direction: column; 
     height: 100%; 
+    min-width: 0;
 } 
 
 .pagina-annuncio.col-md-6:first-child { 
@@ -262,6 +283,22 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 .textarea-2 {
     height: calc(1.5em * 2 + 1rem);
     resize: none;
+}
+
+.annuncio-dettagli h1,
+.meta,
+.descrizione p,
+.commento-meta,
+.commento-testo {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.annuncio-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
 }
 
 .new-announcement { /*vedi poi se coincide con quello dell'ila (.new-announcement e .new-announcement:hover)*/
