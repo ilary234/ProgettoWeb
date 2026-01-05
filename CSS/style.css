@@ -113,6 +113,8 @@ main > section > form select {
 
 .annuncio p:last-of-type {
     display: -webkit-box;
+    display: box;   
+    line-clamp: 3;  
     -webkit-line-clamp: 3; /*aggiunto solo perchè come prova avevo scritto un'anteprima lunghissima*/
     -webkit-box-orient: vertical;
     overflow: hidden;
