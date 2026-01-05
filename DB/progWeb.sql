@@ -53,6 +53,7 @@ create table Argomento (
      `Titolo` varchar(100) not null,
      `AdminGruppo` varchar(20) not null,
      `NomeGruppo` varchar(80) not null,
+     `Svolto` bool not null,
      constraint IDArgomento primary key (AdminGruppo, NomeGruppo, Titolo));
 
 create table Incontro (
@@ -133,15 +134,18 @@ alter table Gruppo add constraint FKCorsoGruppo
      
 alter table Argomento add constraint FKArgomento
      foreign key (AdminGruppo, NomeGruppo)
-     references Gruppo (AdminGruppo, NomeGruppo);
+     references Gruppo (AdminGruppo, NomeGruppo)
+     on delete cascade;
 
 alter table Incontro add constraint FKStabilisce
      foreign key (AdminGruppo, NomeGruppo)
-     references Gruppo (AdminGruppo, NomeGruppo);
+     references Gruppo (AdminGruppo, NomeGruppo)
+     on delete cascade;
 
 alter table Materiale add constraint FKCaricato
      foreign key (AdminGruppo, NomeGruppo)
-     references Gruppo (AdminGruppo, NomeGruppo);
+     references Gruppo (AdminGruppo, NomeGruppo)
+     on delete cascade;
 
 alter table Materiale add constraint FKPubblica
      foreign key (Username)
@@ -153,7 +157,8 @@ alter table Iscrizione add constraint FKIsc_Ute
 
 alter table Iscrizione add constraint FKIsc_Gru
      foreign key (AdminGruppo, NomeGruppo)
-     references Gruppo (AdminGruppo, NomeGruppo);
+     references Gruppo (AdminGruppo, NomeGruppo)
+     on delete cascade;
 
 alter table Materia add constraint FKAppartiene
      foreign key (Corso)

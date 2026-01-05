@@ -36,7 +36,7 @@
         <section class="dati-gruppo">
             <header>
               <h1><?php echo $gruppo[0]["NomeGruppo"]?> - <?php echo $gruppo[0]["Anno"]?></h1>
-              <div>
+              <div class="edit-buttons">
                   <button class="btn btn-outline-secondary material-icons" id="edit">edit</button>
               </div>
             </header>

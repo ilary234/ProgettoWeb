@@ -171,7 +171,7 @@ main > button:hover {
     margin-left: 0;
 }
 
-.info-gruppo {
+.info-gruppo, .dati-gruppo > header {
     display: flex;
     flex-direction: row;
 }
@@ -291,8 +291,22 @@ main > button:hover {
     min-width: 200px;
 }
 
+.dati-gruppo > header > .buttons {
+    right: 1%;
+}
+
+.dati-gruppo > form > input, .dati-gruppo > form > select {
+    margin-bottom: 2%;
+}
+
 .argomenti-gruppo {
     padding: 2%;
+}
+
+.argomenti-gruppo > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 progress {
@@ -302,7 +316,7 @@ progress {
     accent-color: #3f5788;
 }
 
-.argomenti-gruppo h2, .prossimo-incontro h2, .argomenti-gruppo label, .dati-gruppo h1{
+.argomenti-gruppo h2, .prossimo-incontro h2, .argomenti-gruppo > label, .dati-gruppo h1{
     margin: 1% 0;
     font-size: large;
     font-weight: bold;
@@ -310,8 +324,18 @@ progress {
     word-wrap: break-word;
 }
 
+.dati-gruppo > header > .edit-buttons {
+    margin-left: auto;
+}
+
 .dati-gruppo h1 {
     font-size: x-large;
+    margin-right: 1%;
+    width: 65%;
+}
+
+.dati-gruppo > header {
+    max-height: fit-content;
 }
 
 .anteprima {
@@ -488,9 +512,9 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     overflow: hidden; 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .info-gruppo {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 }
