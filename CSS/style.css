@@ -361,6 +361,28 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     position: relative;
 }
 
+.annuncio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.annuncio-header h1 {
+    margin: 0;
+    flex: 1;
+}
+
+.annuncio-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.annuncio-actions button {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+}
+
 @media (max-width: 768px) { 
 
     .annuncio-dettagli {

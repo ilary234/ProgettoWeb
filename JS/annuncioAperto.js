@@ -11,6 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("commentForm")
         ?.addEventListener("submit", saveComment);
+
+    document.querySelector(".confirmAzione")
+        ?.addEventListener("click", async () => {
+            if (!commentoDaEliminare) return;
+
+            await eliminaCommento(commentoDaEliminare);
+            commentoDaEliminare = null;
+        });
+
+    document.querySelector(".confirmDeleteAnnuncio")
+        ?.addEventListener("click", async () => {
+            if (!annuncioDaEliminare) return;
+
+            await eliminaAnnuncio(annuncioDaEliminare);
+            annuncioDaEliminare = null;
+        });
 });
 
 async function loadAnnuncio(id) {
@@ -21,6 +37,21 @@ async function loadAnnuncio(id) {
     document.getElementById("meta").textContent =
         `${data.Username} - ${data.DataPubblicazione}`;
     document.getElementById("descrizione").textContent = data.Descrizione;
+
+    if (LOGGED_USER && data.Username === LOGGED_USER) {
+        const actions = document.getElementById("annuncioActions");
+        actions?.classList.remove("d-none");
+
+        document.getElementById("deleteAnnuncioBtn")
+            ?.addEventListener("click", () => {
+                annuncioDaEliminare = ANNUNCIO_ID;
+
+                const modal = new bootstrap.Modal(
+                    document.getElementById("confermaEliminazioneAnnuncio")
+                );
+                modal.show();
+            });
+    }
 }
 
 async function loadCommenti(id) {
@@ -32,24 +63,20 @@ async function loadCommenti(id) {
 
     commenti.forEach(c => {
         const isOwner = LOGGED_USER && c.Username === LOGGED_USER;
- 
+
         lista.innerHTML += `
             <div class="commento">
                 ${isOwner ? `
                     <button class="delete-btn comment-delete"
-                            data-annuncio="${ANNUNCIO_ID}"
-                            data-username="${c.Username}"
-                            data-data="${c.DataPubblicazione}"
-                            data-ora="${c.Ora}">
+                        data-annuncio="${ANNUNCIO_ID}"
+                        data-username="${c.Username}"
+                        data-data="${c.DataPubblicazione}"
+                        data-ora="${c.Ora}">
                         ✕
                     </button>
                 ` : ``}
-                <div class="commento-meta">
-                    ${c.Username}
-                </div>
-                <div class="commento-testo">
-                    ${c.Testo}
-                </div>
+                <div class="commento-meta">${c.Username}</div>
+                <div class="commento-testo">${c.Testo}</div>
             </div>
         `;
     });
@@ -63,7 +90,7 @@ async function loadCommenti(id) {
     }
 }
 
-async function saveComment(e, id) {
+async function saveComment(e) {
     e.preventDefault();
 
     const textarea = e.target.querySelector("textarea");
@@ -89,6 +116,7 @@ async function saveComment(e, id) {
 }
 
 let commentoDaEliminare = null;
+let annuncioDaEliminare = null;
 
 document.addEventListener("click", e => {
     if (e.target.classList.contains("comment-delete")) {
@@ -106,44 +134,41 @@ document.addEventListener("click", e => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".confirmAzione")
-        .addEventListener("click", async () => {
-            if (!commentoDaEliminare) return;
-
-            await eliminaCommento(commentoDaEliminare);
-            commentoDaEliminare = null;
-        });
-});
-
 async function eliminaCommento(commento) {
-    const urlDelete = "API/api-delete-commento.php";
     const formData = new FormData();
-
     formData.append("idAnnuncio", commento.id_annuncio);
     formData.append("username", commento.username);
     formData.append("data", commento.data);
     formData.append("ora", commento.ora);
 
-    try {
-        const response = await fetch(urlDelete, {
-            method: "POST",
-            body: formData
-        });
+    const response = await fetch("API/api-delete-commento.php", {
+        method: "POST",
+        body: formData
+    });
 
-        if (!response.ok) {
-            throw new Error("Response: " + response.status);
-        }
+    const res = await response.json();
 
-        const res = await response.json();
+    if (res.success) {
+        loadCommenti(ANNUNCIO_ID);
+    } else {
+        console.log(res.error || res.message);
+    }
+}
 
-        if (!res.success) {
-            console.log(res.message || res.error);
-        } else {
-            loadCommenti(ANNUNCIO_ID);
-        }
+async function eliminaAnnuncio(idAnnuncio) {
+    const formData = new FormData();
+    formData.append("idAnnuncio", idAnnuncio);
 
-    } catch (error) {
-        console.log(error);
+    const response = await fetch("API/api-delete-annuncio.php", {
+        method: "POST",
+        body: formData
+    });
+
+    const res = await response.json();
+
+    if (res.success) {
+        window.location.href = "index.php";
+    } else {
+        console.log(res.error || "Errore eliminazione annuncio");
     }
 }
