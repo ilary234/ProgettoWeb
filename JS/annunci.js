@@ -68,14 +68,72 @@ function filterAnnunci() {
 function getAnnunciHTML(annunciList) {
     let section = ``;
     annunciList.forEach(annuncio => {
+        const isOwner = LOGGED_USER && annuncio.Username === LOGGED_USER;
         section += `<div class="annuncio">
-                <h2>${annuncio.Titolo}</h2>
-                <p>${annuncio.Username}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;${annuncio.DataPubblicazione}</p>
-                <p>${annuncio.Anteprima}</p>
-                <a href="annuncioAperto.php?annuncio=${annuncio.Id_annuncio}">Leggi tutto</a>
-            </div>`;
+            ${isOwner ? `
+                <button class="delete-btn" data-id="${annuncio.Id_annuncio}">✕</button>
+            ` : ``}
+            <h2>${annuncio.Titolo}</h2>
+            <p>${annuncio.Username} - ${annuncio.DataPubblicazione}</p>
+            <p>${annuncio.Anteprima}</p>
+            <a href="annuncioAperto.php?annuncio=${annuncio.Id_annuncio}">Leggi tutto</a>
+        </div>`;
     });
+
     return section;
 }
 
 getStartData();
+
+let annuncioDaEliminare = null;
+
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-btn")) {
+        annuncioDaEliminare = e.target.dataset.id;
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("confermaAzione")
+        );
+        modal.show();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".confirmAzione")
+        .addEventListener("click", async () => {
+            if (!annuncioDaEliminare) return;
+
+            await eliminaAnnuncio(annuncioDaEliminare);
+            annuncioDaEliminare = null;
+        });
+});
+
+async function eliminaAnnuncio(id) {
+    let urlDelete = "API/api-delete-annuncio.php";
+    const formData = new FormData();
+    formData.append("idAnnuncio", id);
+
+    try {
+        const response = await fetch(urlDelete, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+
+        let res = await response.json();
+
+        if (!res.success) {
+            console.log(res.error);
+        } else {
+            getStartData();
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+

@@ -131,6 +131,18 @@ class DatabaseHelper{
         $stmt->bind_param("sissss", $categoria, $materia, $titolo, $username, $anteprima, $descrizione);
         return $stmt->execute();
     }
+
+    public function deleteAnnuncio($idAnnuncio) {
+        $stmt = $this->db->prepare("DELETE FROM Annuncio WHERE Id_annuncio = ?");
+        $stmt->bind_param("i", $idAnnuncio);
+        return $stmt->execute();
+    }
+
+    public function deleteCommentiByAnnuncio($idAnnuncio) {
+        $stmt = $this->db->prepare("DELETE FROM Commento WHERE Id_annuncio = ?");
+        $stmt->bind_param("i", $idAnnuncio);
+        return $stmt->execute();
+    }
 }
 
 ?>

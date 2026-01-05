@@ -1,3 +1,6 @@
+<script>
+    const LOGGED_USER = "<?php echo $_SESSION['username'] ?? ''; ?>";
+</script>
 <section>
     <form action="#" class="row text-center">
         <div class="col-12">
@@ -15,3 +18,21 @@
     </form>
 </section>
 <section class="flex-container"></section>
+<a href="nuovoAnnuncio.php" class="new-announcement">+</a>
+<div class="modal fade" id="confermaAzione" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confermaAzioneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confermaAzioneLabel">Conferma</h1>
+        <button type="button" class="btn-close closeAzione" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Sei sicuro di voler eliminare l'annuncio?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary calcelAzione" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary confirmAzione" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

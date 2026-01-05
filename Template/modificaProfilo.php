@@ -7,12 +7,12 @@
             <input type="text" id="nome" class="form-control" required>
         </div>
         <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" required>
-        </div>
-        <div class="col-md-6">
             <label class="form-label">Cognome</label>
             <input type="text" id="cognome" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" required>
         </div>
         <div class="col-md-6">
             <label class="form-label">Telefono</label>
