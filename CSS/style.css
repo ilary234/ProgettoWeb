@@ -165,6 +165,7 @@ main > button:hover {
     padding: 1% 4%; 
     display: block;
     margin-left: auto;
+    margin-top: 0.5rem;
 }
 
 #cancel {
@@ -332,10 +333,6 @@ progress {
     top: 4%;
     right: 3%;
 }
-    display: block; 
-    margin-left: auto; 
-    margin-top: 0.5rem; 
-} 
 
 .gruppo button:hover { 
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.6); 
@@ -357,7 +354,7 @@ progress {
     display: -webkit-box;
     display: box;   
     line-clamp: 3;  
-    -webkit-line-clamp: 3; /*aggiunto solo perchè come prova avevo scritto un'anteprima lunghissima*/
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -384,7 +381,7 @@ progress {
 .annuncio h2 { 
     font-size: 0.9rem; 
     word-wrap: break-word; 
-    max-width: calc(100% - 40px); /* spazio per la X */
+    max-width: calc(100% - 40px);
     word-wrap: break-word;
     overflow-wrap: break-word;
 } 
@@ -543,7 +540,7 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     min-width: 0;
 }
 
-.new-announcement { /*vedi poi se coincide con quello dell'ila (.new-announcement e .new-announcement:hover)*/
+.new-announcement { 
     position: fixed;
     bottom: calc(var(--footer-height) + 20px);
     right: 20px;
