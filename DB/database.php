@@ -149,6 +149,12 @@ class DatabaseHelper{
         $stmt->bind_param("isss", $idAnnuncio, $username, $data, $ora);
         return $stmt->execute();
     }
+
+    public function updateAnnuncio($idAnnuncio, $titolo, $anteprima, $descrizione, $categoria, $materia) {
+        $stmt = $this->db->prepare("UPDATE Annuncio SET Titolo = ?, Anteprima = ?, Descrizione = ?, Categoria = ?, Materia = ? WHERE Id_Annuncio = ?");
+        $stmt->bind_param("ssssii", $titolo, $anteprima,$descrizione, $categoria, $materia, $idAnnuncio);
+        return $stmt->execute();
+    }
 }
 
 ?>

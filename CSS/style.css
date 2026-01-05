@@ -279,12 +279,10 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 
 .textarea-4 {
     height: calc(1.5em * 4 + 1rem);
-    resize: none;
 }
 
 .textarea-2 {
     height: calc(1.5em * 2 + 1rem);
-    resize: none;
 }
 
 .annuncio-dettagli h1,

@@ -51,6 +51,13 @@ async function loadAnnuncio(id) {
                 );
                 modal.show();
             });
+
+        document.getElementById("editAnnuncioBtn")
+            ?.addEventListener("click", () => {
+                window.location.href =
+                    `modificaAnnuncio.php?id=${ANNUNCIO_ID}`;
+            });
+
     }
 }
 
