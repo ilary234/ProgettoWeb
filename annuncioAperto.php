@@ -9,7 +9,7 @@
     }
 
     $templateParams["nome"] = "Template/annuncioAperto.php";
-    $templateParams["js"]   = ["JS/annuncioAperto.js"];
+    $templateParams["js"]   = array("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", "JS/annuncioAperto.js");
     $templateParams["idAnnuncio"] = $idAnnuncio;
 
     require 'Template/base.php';

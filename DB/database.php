@@ -143,6 +143,12 @@ class DatabaseHelper{
         $stmt->bind_param("i", $idAnnuncio);
         return $stmt->execute();
     }
+
+    public function deleteCommento($idAnnuncio, $username, $data, $ora) {
+        $stmt = $this->db->prepare("DELETE FROM Commento WHERE Id_annuncio = ? AND Username = ? AND DataPubblicazione = ? AND Ora = ?");
+        $stmt->bind_param("isss", $idAnnuncio, $username, $data, $ora);
+        return $stmt->execute();
+    }
 }
 
 ?>

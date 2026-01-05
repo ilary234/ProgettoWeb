@@ -357,6 +357,10 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     color: white;
 }
 
+.commento {
+    position: relative;
+}
+
 @media (max-width: 768px) { 
 
     .annuncio-dettagli {

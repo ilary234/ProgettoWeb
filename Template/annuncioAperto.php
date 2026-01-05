@@ -1,5 +1,6 @@
 <script>
     const ANNUNCIO_ID = <?= json_encode($templateParams["idAnnuncio"]); ?>;
+    const LOGGED_USER = "<?php echo $_SESSION['username'] ?? ''; ?>";
 </script>
 <script src="JS/annuncioAperto.js"></script>
 <section class="container-fluid mt-4 pagina-annuncio" data-id="<?= $templateParams['idAnnuncio']; ?>">
@@ -33,6 +34,23 @@
         </div>
     </div>
 </section>
+<div class="modal fade" id="confermaAzione" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confermaAzioneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confermaAzioneLabel">Conferma</h1>
+        <button type="button" class="btn-close closeAzione" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Sei sicuro di voler eliminare il commento?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary calcelAzione" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary confirmAzione" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 function toggleComments() {
     const drawer = document.querySelector('.commenti-sezione');

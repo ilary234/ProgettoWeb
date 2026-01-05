@@ -31,10 +31,21 @@ async function loadCommenti(id) {
     lista.innerHTML = "";
 
     commenti.forEach(c => {
+        const isOwner = LOGGED_USER && c.Username === LOGGED_USER;
+ 
         lista.innerHTML += `
             <div class="commento">
+                ${isOwner ? `
+                    <button class="delete-btn comment-delete"
+                            data-annuncio="${ANNUNCIO_ID}"
+                            data-username="${c.Username}"
+                            data-data="${c.DataPubblicazione}"
+                            data-ora="${c.Ora}">
+                        ✕
+                    </button>
+                ` : ``}
                 <div class="commento-meta">
-                    ${c.Username} - ${c.DataPubblicazione}
+                    ${c.Username}
                 </div>
                 <div class="commento-testo">
                     ${c.Testo}
@@ -75,4 +86,64 @@ async function saveComment(e, id) {
 
     textarea.value = "";
     loadCommenti(ANNUNCIO_ID);
+}
+
+let commentoDaEliminare = null;
+
+document.addEventListener("click", e => {
+    if (e.target.classList.contains("comment-delete")) {
+        commentoDaEliminare = {
+            id_annuncio: e.target.dataset.annuncio,
+            username: e.target.dataset.username,
+            data: e.target.dataset.data,
+            ora: e.target.dataset.ora
+        };
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("confermaAzione")
+        );
+        modal.show();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".confirmAzione")
+        .addEventListener("click", async () => {
+            if (!commentoDaEliminare) return;
+
+            await eliminaCommento(commentoDaEliminare);
+            commentoDaEliminare = null;
+        });
+});
+
+async function eliminaCommento(commento) {
+    const urlDelete = "API/api-delete-commento.php";
+    const formData = new FormData();
+
+    formData.append("idAnnuncio", commento.id_annuncio);
+    formData.append("username", commento.username);
+    formData.append("data", commento.data);
+    formData.append("ora", commento.ora);
+
+    try {
+        const response = await fetch(urlDelete, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("Response: " + response.status);
+        }
+
+        const res = await response.json();
+
+        if (!res.success) {
+            console.log(res.message || res.error);
+        } else {
+            loadCommenti(ANNUNCIO_ID);
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
 }
