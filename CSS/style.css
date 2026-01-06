@@ -414,9 +414,19 @@ progress {
     min-width: 0;
 } 
 
-.pagina-annuncio.col-md-6:first-child { 
-    border-right: 1px solid #ddd; 
-} 
+.annuncio-col {
+    position: relative;
+}
+
+.annuncio-col::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 0;
+    width: 1px;
+    background-color: #ddd;
+}
 
 .commenti-sezione { 
     display: flex; 
@@ -637,6 +647,10 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 }
 
 @media (max-width: 768px) { 
+
+    .annuncio-col::after {
+        display: none;
+    }
 
     .annuncio-dettagli {
         padding-bottom: 80px;
