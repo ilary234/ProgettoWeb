@@ -82,6 +82,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getUserMaterial($username) {
+        $stmt = $this->db->prepare("SELECT Titolo, Tipo, Percorso FROM Materiale WHERE Username = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function insertMaterial($username, $admin, $nomeGruppo, $titolo, $type, $file) {
         $stmt = $this->db->prepare("INSERT INTO Materiale VALUES (?, ?, ?, ?, CURDATE(), ?, ?)");
         $stmt->bind_param('ssssss', $username, $admin, $nomeGruppo, $titolo, $type, $file);

@@ -36,3 +36,37 @@ async function loadUserData() {
 }
 
 loadUserData();
+
+const imgdir = "./Upload/Preview/"
+const filedir = "./Upload/"
+let files;
+
+function getFiles() {
+    let section = ``;
+    for (let i = 0; i < files.length; i++) {
+        section += `<div class="materiale">
+                <div class="anteprima">
+                    <img src="${imgdir}${files[i]["Tipo"]}.png" alt="Estensione file ${files[i]["Tipo"]}">
+                </div>
+                <h2>${files[i]["Titolo"]}</h2>
+                <a href="${filedir}${files[i]["Percorso"]}" class="download" download>Scarica</a>
+            </div>`;
+    }
+    return section;
+}
+
+async function getFileData() {
+    let urlFiles = `API/api-materiale-utente.php`;
+    try {
+        const responseFile = await fetch(urlFiles);
+        if(!responseFile.ok){
+            throw new Error("Response File status: " + responseFile.status);
+        }
+        files = await responseFile.json();
+        document.querySelector(".flex-container").innerHTML = getFiles();
+    } catch (error) {
+        console.log(error.message);
+    }    
+}
+
+getFileData();

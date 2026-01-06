@@ -39,37 +39,7 @@
 
     <!-- MATERIALE CONDIVISO -> DA SISTEMARE -->
     <h3 class="text-center mb-4">Materiale condiviso</h3>
-
-    <div class="row g-4">
-
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="bg-light mb-3" style="height:150px;"></div>
-                    <h5 class="card-title">Titolo</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="bg-light mb-3" style="height:150px;"></div>
-                    <h5 class="card-title">Titolo</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <div class="bg-light mb-3" style="height:150px;"></div>
-                    <h5 class="card-title">Titolo</h5>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <section class="flex-container"></section>
 
 </section>
 
