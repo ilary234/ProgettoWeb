@@ -171,7 +171,7 @@ main > button:hover, main > .addGroup:hover {
     padding: 1% 4%; 
     display: block;
     margin-left: auto;
-    margin-top: 0.5rem;
+    /*margin-top: 0.5rem;*/
 }
 
 #cancel {
@@ -399,7 +399,8 @@ progress {
 } 
 
 .annuncio-dettagli h1 { 
-    color: #3f5788; margin-bottom: 20px; 
+    color: #3f5788; 
+    margin-bottom: 20px; 
 } 
 
 .descrizione { 
