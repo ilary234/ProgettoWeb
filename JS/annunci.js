@@ -21,9 +21,6 @@ async function getStartData() {
         annunci = await responseAnnunci.json();
         categorie = await responseCategories.json();
         materie = await responseMaterie.json();
-        console.log(annunci);
-        console.log(categorie);
-        console.log(materie);
         document.getElementById("categorie").innerHTML = getCategoriesOptions();
         document.getElementById("materie").innerHTML = getMaterieOptions();
         document.querySelector("main section:last-of-type").innerHTML = getAnnunciHTML(annunci);
@@ -103,15 +100,28 @@ document.addEventListener("click", function (e) {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".confirmAzione")
-        .addEventListener("click", async () => {
-            if (!annuncioDaEliminare) return;
+document.querySelector(".confirmAzione").addEventListener("click", () => {
+    document.querySelector(".confirmAzione").blur();
+    if (!annuncioDaEliminare) return;
+    eliminaAnnuncio(annuncioDaEliminare);
+    annuncioDaEliminare = null;
+})
 
-            await eliminaAnnuncio(annuncioDaEliminare);
-            annuncioDaEliminare = null;
-        });
-});
+document.querySelector(".calcelAzione").addEventListener("click", () => {
+    document.querySelector(".calcelAzione").blur();
+})
+
+document.querySelector(".closeAzione").addEventListener("click", () => {
+    document.querySelector(".closeAzione").blur();
+})
+
+document.querySelector(".close").addEventListener("click", () => {
+    document.querySelector(".close").blur();
+})
+
+document.querySelector(".ok").addEventListener("click", () => {
+    document.querySelector(".ok").blur();
+})
 
 async function eliminaAnnuncio(id) {
     let urlDelete = "API/api-delete-annuncio.php";

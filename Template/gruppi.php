@@ -2,11 +2,11 @@
     <form action="#" class="row text-center">
         <div class="col-12">
             <div class="row justify-content-sm-center">
-            <label for="corsi" class="col-2 col-sm-auto">Filtra: </label>
+            <label for="corsi" class="col-3 col-sm-auto">Corso: </label>
             <select id="corsi" name="corsi" class="col-3">
                 <option value="--">--</option>
             </select>
-            <label for="materie" class="col-1 col-sm-auto"></label>
+            <label for="materie" class="col-3 col-sm-auto">Materia:</label>
             <select id="materie" name="materie" class="col-3">
                 <option value="--">--</option>
             </select>

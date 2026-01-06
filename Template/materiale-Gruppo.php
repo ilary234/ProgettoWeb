@@ -11,7 +11,7 @@
 </header>
 <p id="username" hidden><?php echo $_SESSION["username"] ?></p>
 <section class="flex-container"></section>
-<button class="button material-icons">add</button>
+<button class="addMaterial material-icons">add</button>
 <div class="modal fade" id="confermaEliminazione" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confermaEliminazioneLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">

@@ -1,3 +1,6 @@
+let commentoDaEliminare;
+let annuncioDaEliminare;
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("JS CARICATO");
 
@@ -12,21 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("commentForm")
         ?.addEventListener("submit", saveComment);
 
-    document.querySelector(".confirmAzione")
-        ?.addEventListener("click", async () => {
-            if (!commentoDaEliminare) return;
-
-            await eliminaCommento(commentoDaEliminare);
-            commentoDaEliminare = null;
-        });
-
-    document.querySelector(".confirmDeleteAnnuncio")
-        ?.addEventListener("click", async () => {
-            if (!annuncioDaEliminare) return;
-
-            await eliminaAnnuncio(annuncioDaEliminare);
-            annuncioDaEliminare = null;
-        });
 });
 
 async function loadAnnuncio(id) {
@@ -136,9 +124,6 @@ async function saveComment(e) {
     loadCommenti(ANNUNCIO_ID);
 }
 
-let commentoDaEliminare = null;
-let annuncioDaEliminare = null;
-
 document.addEventListener("click", e => {
     if (e.target.classList.contains("comment-delete")) {
         commentoDaEliminare = {
@@ -154,6 +139,44 @@ document.addEventListener("click", e => {
         modal.show();
     }
 });
+
+document.querySelector(".cancelDeleteAnnuncio").addEventListener("click", () => {
+    document.querySelector(".cancelDeleteAnnuncio").blur();
+})
+
+document.querySelector(".closeDeleteAnnuncio").addEventListener("click", () => {
+    document.querySelector(".closeDeleteAnnuncio").blur();
+})
+
+document.querySelector(".confirmDeleteAnnuncio").addEventListener("click", () => {
+    document.querySelector(".confirmDeleteAnnuncio").blur();
+    if (!annuncioDaEliminare) return;
+    eliminaAnnuncio(annuncioDaEliminare);
+    annuncioDaEliminare = null;
+})
+
+document.querySelector(".confirmAzione").addEventListener("click", () => {
+    document.querySelector(".confirmAzione").blur();
+    if (!commentoDaEliminare) return;
+    eliminaCommento(commentoDaEliminare);
+    commentoDaEliminare = null;
+})
+
+document.querySelector(".calcelAzione").addEventListener("click", () => {
+    document.querySelector(".calcelAzione").blur();
+})
+
+document.querySelector(".closeAzione").addEventListener("click", () => {
+    document.querySelector(".closeAzione").blur();
+})
+
+document.querySelector(".close").addEventListener("click", () => {
+    document.querySelector(".close").blur();
+})
+
+document.querySelector(".ok").addEventListener("click", () => {
+    document.querySelector(".ok").blur();
+})
 
 async function eliminaCommento(commento) {
     const formData = new FormData();

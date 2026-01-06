@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="CSS/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gruppi studio</title>
     </head>
     <body>
         <header>
-            <!--<h1>Gruppi M&P</h1>-->
             <div class="row">
                 <nav class="col-12">
                     <ul class="row nav text-center">
