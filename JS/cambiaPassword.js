@@ -46,6 +46,5 @@ async function changePassword(e) {
         return;
     }
 
-    alert("Password aggiornata correttamente ✅");
     window.location.replace("/ProgettoWeb/areaRiservata.php");
 }

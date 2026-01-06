@@ -100,6 +100,14 @@ async function loadCommenti(id) {
 async function saveComment(e) {
     e.preventDefault();
 
+    if (!LOGGED_USER) {
+        const modal = new bootstrap.Modal(
+            document.getElementById("loginNecessario")
+        );
+        modal.show();
+        return;
+    }
+
     const textarea = e.target.querySelector("textarea");
 
     const res = await fetch("API/api-inserisci-commento.php", {

@@ -121,6 +121,5 @@ async function saveProfile(e) {
         return;
     }
 
-    alert("Profilo aggiornato correttamente ✅");
     window.location.replace("/ProgettoWeb/areaRiservata.php");
 }

@@ -87,7 +87,6 @@ async function createAnnouncement(e) {
         return;
     }
 
-    alert("Annuncio creato con successo ✅");
     window.location.replace("/ProgettoWeb/annunci.php");
 }
 

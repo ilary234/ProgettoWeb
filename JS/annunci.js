@@ -136,4 +136,19 @@ async function eliminaAnnuncio(id) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const newAnnouncementBtn = document.querySelector(".new-announcement");
+    if (!newAnnouncementBtn) return;
+    newAnnouncementBtn.addEventListener("click", function (e) {
+        if (!LOGGED_USER) {
+            e.preventDefault();
+            const modal = new bootstrap.Modal(
+                document.getElementById("loginNecessario")
+            );
+            modal.show();
+        }
+    });
+});
+
+
 
