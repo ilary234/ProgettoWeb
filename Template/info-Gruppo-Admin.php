@@ -40,7 +40,8 @@
                   <button class="btn btn-outline-secondary material-icons" id="edit">edit</button>
               </div>
             </header>
-            <p><?php echo $gruppo[0]["AdminGruppo"]?></p>
+            <p><a href="areaRiservata.php?user=<?php echo $gruppo[0]["AdminGruppo"]?>">
+                <?php echo $gruppo[0]["AdminGruppo"]?></a></p>
             <p>Luogo: <?php echo $gruppo[0]["LuogoIncontro"]?></p><br>
             <section class="prossimo-incontro">
             </section>

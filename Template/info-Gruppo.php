@@ -49,7 +49,8 @@
         </div>
         <section class="dati-gruppo">
             <h1><?php echo $gruppo[0]["NomeGruppo"]?> - <?php echo $gruppo[0]["Anno"]?></h1>
-            <p><?php echo $gruppo[0]["AdminGruppo"]?></p>
+            <p><a href="areaRiservata.php?user=<?php echo $gruppo[0]["AdminGruppo"]?>">
+                <?php echo $gruppo[0]["AdminGruppo"]?></a></p>
             <p>Luogo: <?php echo $gruppo[0]["LuogoIncontro"]?></p><br>
             <section class="prossimo-incontro">
             </section>

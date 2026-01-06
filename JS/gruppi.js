@@ -47,7 +47,8 @@ function getGroups(gruppiFiltrati) {
     for (let i = 0; i < gruppiFiltrati.length; i++) {
         section += `<div class="gruppo">
                 <h2>${gruppiFiltrati[i]["NomeGruppo"]} - ${gruppiFiltrati[i]["Anno"]}</h2>
-                <p>Admin: ${gruppiFiltrati[i]["AdminGruppo"]}</p>
+                <p>Admin: <a href="areaRiservata.php?user=${gruppiFiltrati[i]["AdminGruppo"]}">
+                ${gruppiFiltrati[i]["AdminGruppo"]}</a></p>
                 <p>Iscritti: ${gruppiFiltrati[i]["NumeroPartecipanti"]}</p>
                 <a href="infoGruppo.php?nomeGruppo=${gruppiFiltrati[i]["NomeGruppo"]}&admin=${gruppiFiltrati[i]["AdminGruppo"]}">Info</a>
             </div>`;

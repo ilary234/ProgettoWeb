@@ -79,12 +79,13 @@ function getFiles() {
         section += `<div class="materiale">
                 <div class="anteprima">`;
         if(document.querySelector("#username").innerText == files[i]["Username"]) {
-           section +=  `<a href="#" class="btn btn-secondary material-icons delete-btn" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>`;
+           section +=  `<a href="#" class="btn btn-secondary material-icons" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>`;
         }
         section += `<img src="${imgdir}${files[i]["Tipo"]}.png" alt="Estensione file ${files[i]["Tipo"]}">
                 </div>
                 <h2>${files[i]["Titolo"]}</h2>
-                <p>${files[i]["Username"]}  -  ${files[i]["DataPubblicazione"]}</p>
+                <p><a href="areaRiservata.php?user=${files[i]["Username"]}">
+                ${files[i]["Username"]}</a>  -  ${files[i]["DataPubblicazione"]}</p>
                 <a href="${filedir}${files[i]["Percorso"]}" class="download" download>Scarica</a>
             </div>`;
     }
