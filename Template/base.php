@@ -37,9 +37,9 @@
             <div class="row">
                 <nav class="col-12">
                     <ul class="row nav text-center justify-content-center">
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">AlmaEsami</a></li>
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">Virtuale</a></li>
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">Studenti Online</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://almaesami.unibo.it">AlmaEsami</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://virtuale.unibo.it/">Virtuale</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://studenti.unibo.it/">Studenti Online</a></li>
                     </ul>
                 </nav>
             </div>
