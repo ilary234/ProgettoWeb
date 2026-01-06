@@ -34,8 +34,10 @@ async function loadAnnuncio(id) {
     const data = await res.json();
 
     document.getElementById("titolo").textContent = data.Titolo;
-    document.getElementById("meta").textContent =
-        `${data.Username} - ${data.DataPubblicazione}`;
+    document.getElementById("meta").innerHTML =
+    `<a href="areaRiservata.php?user=${encodeURIComponent(data.Username)}">
+        ${data.Username}
+     </a> - ${data.DataPubblicazione}`;
     document.getElementById("descrizione").textContent = data.Descrizione;
 
     if (LOGGED_USER && data.Username === LOGGED_USER) {
@@ -82,7 +84,11 @@ async function loadCommenti(id) {
                         ✕
                     </button>
                 ` : ``}
-                <div class="commento-meta">${c.Username}</div>
+                <div class="commento-meta">
+                    <a href="areaRiservata.php?user=${encodeURIComponent(c.Username)}">
+                        ${c.Username}
+                    </a>
+                </div>
                 <div class="commento-testo">${c.Testo}</div>
             </div>
         `;

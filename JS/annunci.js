@@ -74,9 +74,14 @@ function getAnnunciHTML(annunciList) {
                 <button class="delete-btn" data-id="${annuncio.Id_annuncio}">✕</button>
             ` : ``}
             <h2>${annuncio.Titolo}</h2>
-            <p>${annuncio.Username} - ${annuncio.DataPubblicazione}</p>
+            <p>
+                <a href="areaRiservata.php?user=${encodeURIComponent(annuncio.Username)}">
+                    ${annuncio.Username}
+                </a>
+                - ${annuncio.DataPubblicazione}
+            </p>
             <p>${annuncio.Anteprima}</p>
-            <a href="annuncioAperto.php?annuncio=${annuncio.Id_annuncio}">Leggi tutto</a>
+            <a class="leggi-tutto" href="annuncioAperto.php?annuncio=${annuncio.Id_annuncio}">Leggi tutto</a>
         </div>`;
     });
 

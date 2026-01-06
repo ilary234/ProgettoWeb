@@ -1,13 +1,16 @@
 <?php
     require_once '../bootstrap.php';
 
-    if (!isset($_SESSION['username'])) {
+    $loggedUser = $_SESSION['username'] ?? null;
+    $profileUser = $_GET['user'] ?? $loggedUser;
+
+    if (!$profileUser) {
         http_response_code(401);
-        echo json_encode(["error" => "Non autenticato"]);
+        echo json_encode(["error" => "Utente mancante"]);
         exit;
     }
 
-    $user = $dbh->getUserByUsername($_SESSION['username']);
+    $user = $dbh->getUserByUsername($profileUser);
     
     if (!empty($user['CorsoLaurea'])) {
         $corso = $dbh->getCorsoLaureaById($user['CorsoLaurea']);

@@ -386,7 +386,7 @@ progress {
     overflow-wrap: break-word;
 } 
 
-.annuncio a { 
+.annuncio .leggi-tutto { 
     position: absolute; 
     bottom: 10px; 
     right: 10px; 
@@ -507,7 +507,7 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     border-bottom: none; 
 } 
 
-.card.position-relative .card-body { 
+.owner-view .card.position-relative .card-body {
     padding-top: 3.5rem;
 } 
 
@@ -620,6 +620,15 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
 .annuncio-actions button {
     padding: 4px 8px;
     font-size: 0.85rem;
+}
+
+.guest-view .card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.guest-view .card-body {
+    padding: 1.25rem;
 }
 
 @media (max-width: 600px) {

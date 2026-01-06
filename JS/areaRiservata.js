@@ -1,6 +1,14 @@
+const params = new URLSearchParams(window.location.search);
+const profileUser = params.get("user");
+const isOwner = LOGGED_USER !== null && (profileUser === null || profileUser === LOGGED_USER);
+
 async function loadUserData() {
     try {
-        const response = await fetch("API/api-utente.php");
+        const url = profileUser
+            ? `API/api-utente.php?user=${encodeURIComponent(profileUser)}`
+            : `API/api-utente.php`;
+
+        const response = await fetch(url);
 
         if (!response.ok) {
             throw new Error("Errore caricamento utente");
@@ -35,8 +43,6 @@ async function loadUserData() {
     }
 }
 
-loadUserData();
-
 const imgdir = "./Upload/Preview/"
 const filedir = "./Upload/"
 let files;
@@ -69,4 +75,9 @@ async function getFileData() {
     }    
 }
 
-getFileData();
+document.addEventListener("DOMContentLoaded", () => {
+    loadUserData();
+    if (isOwner) {
+        getFileData();
+    }
+});
