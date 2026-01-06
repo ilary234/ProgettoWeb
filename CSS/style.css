@@ -90,7 +90,7 @@ main > section > form select {
     justify-content: center;
 }
 
-.gruppo, .materiale {
+.gruppo, .materiale, .annuncio {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -111,7 +111,7 @@ main > section > form select {
     position: relative;
 }
 
-.gruppo:hover { 
+.gruppo:hover, .annuncio:hover { 
     background-color: #9cbce7; 
 } 
 
@@ -119,13 +119,13 @@ h2, p {
     margin: 1% 0;
 }
 
-.gruppo h2, .materiale h2{
+.gruppo h2, .materiale h2, .annuncio h2 {
     font-size: medium;
     font-weight: bold;
     word-wrap: break-word;
 }
 
-.gruppo p, .materiale p {
+.gruppo p, .materiale p, .annuncio p {
     font-size: small;
 }
 
@@ -342,14 +342,6 @@ progress {
     color: #3f5788; 
 }
 
-.annuncio h2,.annuncio p {
-    margin: 1% 0; 
-    font-weight: bold;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
 .annuncio p:last-of-type {
     display: -webkit-box;
     display: box;   
@@ -358,33 +350,6 @@ progress {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-
-.annuncio { 
-    box-sizing: border-box; 
-    display: flex; 
-    overflow: hidden;
-    flex-direction: column; 
-    position: relative; 
-    width: 300px; 
-    height: 200px; 
-    border-radius: 8px; 
-    border: 2px solid #3f5788; 
-    padding: 1%; margin: 2%; 
-    transition: background-color 0.3s; 
-} 
-
-.annuncio:hover { 
-    background-color: #9cbce7; 
-} 
-
-.annuncio h2 { 
-    font-size: 0.9rem; 
-    word-wrap: break-word; 
-    max-width: calc(100% - 40px);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-} 
 
 .annuncio .leggi-tutto { 
     position: absolute; 
