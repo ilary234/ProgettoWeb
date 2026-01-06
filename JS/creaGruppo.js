@@ -43,6 +43,8 @@ async function getStartData() {
         corsi = await responseCourse.json();
         materie = await responseSubject.json();
         document.getElementById("corso").innerHTML = getCourses();
+        document.getElementById("corso").selectedIndex = 0;
+        filterByCourse();
     } catch (error) {
         console.log(error.message);
     }    
