@@ -81,13 +81,35 @@ async function loadAnnuncio(id) {
 async function saveAnnuncio(e, idAnnuncio) {
     e.preventDefault();
 
+    const errorBox = document.getElementById("errorBox");
+    errorBox.classList.add("d-none");
+    errorBox.innerText = "";
+
+    const titolo = document.getElementById("titolo").value.trim();
+    const anteprima = document.getElementById("anteprima").value.trim();
+    const descrizione = document.getElementById("descrizione").value.trim();
+    const categoria = document.getElementById("categorie").value;
+    const materia = document.getElementById("materie").value;
+
+    if (titolo.length > 50) {
+        errorBox.innerText = "Il titolo può contenere al massimo 50 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
+    if (!titolo || !anteprima || !descrizione || !categoria || !materia) {
+        errorBox.innerText = "Tutti i campi sono obbligatori";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
     const payload = {
         id_annuncio: idAnnuncio,
-        titolo: document.getElementById("titolo").value,
-        anteprima: document.getElementById("anteprima").value,
-        descrizione: document.getElementById("descrizione").value,
-        categoria: document.getElementById("categorie").value,
-        materia: document.getElementById("materie").value
+        titolo,
+        anteprima,
+        descrizione,
+        categoria,
+        materia
     };
 
     const res = await fetch("API/api-update-annuncio.php", {

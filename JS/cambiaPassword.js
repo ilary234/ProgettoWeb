@@ -23,6 +23,12 @@ async function changePassword(e) {
         return;
     }
 
+    if (newPassword.length > 50) {
+        errorBox.innerText = "La password può contenere al massimo 50 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
     const response = await fetch("API/api-cambia-password.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

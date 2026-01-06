@@ -1,6 +1,6 @@
 <section class="container my-5">
     <h2 class="text-center mb-4">Modifica dati personali</h2>
-
+    <div id="errorBox" class="alert alert-danger d-none"></div>
     <form id="editProfileForm" class="row g-3">
         <div class="col-md-6">
             <label class="form-label">Nome</label>

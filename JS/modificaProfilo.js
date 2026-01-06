@@ -57,13 +57,54 @@ init();
 async function saveProfile(e) {
     e.preventDefault();
 
+    const errorBox = document.getElementById("errorBox");
+    errorBox.classList.add("d-none");
+    errorBox.innerText = "";
+
+    const nome = document.getElementById("nome").value.trim();
+    const cognome = document.getElementById("cognome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const anno = document.getElementById("anno").value.trim();
+    const id_corso = document.getElementById("corso").value;
+
+    if (nome.length > 20) {
+        errorBox.innerText = "Il nome può contenere al massimo 20 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
+    if (cognome.length > 20) {
+        errorBox.innerText = "Il cognome può contenere al massimo 20 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
+    if (email.length > 50) {
+        errorBox.innerText = "L'email può contenere al massimo 50 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
+    if (telefono && telefono.length > 15) {
+        errorBox.innerText = "Il telefono può contenere al massimo 15 caratteri";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
+    if (!nome || !cognome || !email) {
+        errorBox.innerText = "Nome, cognome ed email sono obbligatori";
+        errorBox.classList.remove("d-none");
+        return;
+    }
+
     const payload = {
-        nome: document.getElementById("nome").value,
-        cognome: document.getElementById("cognome").value,
-        email: document.getElementById("email").value,
-        telefono: document.getElementById("telefono").value,
-        anno: document.getElementById("anno").value,
-        id_corso: document.getElementById("corso").value
+        nome,
+        cognome,
+        email,
+        telefono,
+        anno,
+        id_corso
     };
 
     const response = await fetch("API/api-update-utente.php", {
