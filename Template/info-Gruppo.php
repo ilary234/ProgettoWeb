@@ -10,7 +10,7 @@
                 <li class="nav-item col-4"><a class="nav-link disabled" href="#" aria-disabled="true" tabindex="-1">Materiale</a></li>
                 <?php endif ?>
                 <?php if(!isset($templateParams["username"]) || (isset($templateParams["username"]) && !$templateParams["iscritto"])): ?>
-                <li class="nav-item col-4"><a style="border-right: 0px;" class="nav-link gestioneIscrizione" href="#">Inscriviti</a></li>
+                <li class="nav-item col-4"><a style="border-right: 0px;" class="nav-link gestioneIscrizione" href="#">Iscriviti</a></li>
                 <?php else: ?>
                 <li class="nav-item col-4"><a style="border-right: 0px;" class="nav-link gestioneIscrizione" href="#">Disiscriviti</a></li>
                 <?php endif ?>

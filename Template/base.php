@@ -5,6 +5,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="CSS/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header>
@@ -36,9 +37,9 @@
             <div class="row">
                 <nav class="col-12">
                     <ul class="row nav text-center justify-content-center">
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">AlmaEsami</a></li>
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">Virtuale</a></li>
-                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="#">Studenti Online</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://almaesami.unibo.it">AlmaEsami</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://virtuale.unibo.it/">Virtuale</a></li>
+                        <li class="nav-item col-4 col-sm-auto"><a class="nav-link" href="https://studenti.unibo.it/">Studenti Online</a></li>
                     </ul>
                 </nav>
             </div>

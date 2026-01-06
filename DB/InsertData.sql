@@ -55,7 +55,34 @@ INSERT INTO Materia (Id_Materia, Corso, NomeMateria) VALUES
 (600702, 6007, 'Laboratorio di Big Data'),
 (600703, 6007, 'Progettazione e Sviluppo del Software'),
 (600704, 6007, 'Sistemi Virtualizzati'),
-(600705, 6007, 'Basi di Dati');
+(600705, 6007, 'Basi di Dati'),
+(662401, 6624, 'Psicologia dello sviluppo'),
+(662402, 6624, 'Antropologia culturale'),
+(662403, 6624, 'Neurofisiologia'),
+(668101, 6681, 'Fotografia e comunicazione del cibo'),
+(668102, 6681, 'Microbiologia generale e alimentare'),
+(662901, 6629, 'Chimica generale'),
+(662902, 6629, 'Fisica tecnica'),
+(663001, 6630, 'Colture arboree'),
+(663002, 6630, 'Biochimica'),
+(682301, 6823, 'Business model'),
+(682302, 6823, 'Database systems'),
+(670501, 6705, 'Biostatistics'),
+(670502, 6705, 'Neurophysiology'),
+(669901, 6699, 'Distributed systems'),
+(669902, 6699, 'Machine learning'),
+(671501, 6715, 'Machine learning LM'),
+(671502, 6715, 'Elettronica analogica LM'),
+(674301, 6743, 'Neuroscienze affettive e cognitive'),
+(674302, 6743, 'Neuroscienze dell’invecchiamento'),
+(674401, 6744, 'Metodologia clinica'),
+(674402, 6744, 'Psicosomatica'),
+(674801, 6748, 'Intervento nei contesti scolastici'),
+(674802, 6748, 'Valutazione dei disturbi dell’apprendimento'),
+(674701, 6747, 'Work psychology'),
+(674702, 6747, 'Personnel psychology'),
+(678801, 6788, 'Qualità dei prodotti ittici'),
+(678802, 6788, 'Sistema alimentare');
 
 -- =============================
 --            UTENTI
@@ -141,7 +168,6 @@ INSERT INTO Annuncio (Categoria, Materia, Titolo, DataPubblicazione, Username, A
  'Ideale per chi vuole esercitarsi prima dell’esame.'
 );
 
-
 -- =============================
 --           COMMENTI
 -- =============================
@@ -185,7 +211,7 @@ INSERT INTO Gruppo (AdminGruppo, NomeGruppo, Anno, CorsoLaurea, Materia, NumeroP
 ('mrossi', 'Ingegneria Software', 2023, 6673, 667302, 3, 'Aula Studio 2', 30),
 ('gconti', 'Ricerca Operativa Base', 2023, 6673, 667303, 2, 'Biblioteca Informatica', 20),
 ('fneri', 'Ottimizzazione Avanzata', 2021, 6670, 667001, 2, 'Aula Studio Ingegneria', 30),
-('fneri', 'Elaborazione Segnali Elettronici', 2021, 6670, 667002, 3, 'Laboratorio Elettronica', 40),
+('fneri', 'Elaborazione Segnali Elettronici', 2021, 6670, 667002, 3, 'Laboratorio Elettronica', 33),
 ('fneri', 'Elettronica Digitale Base', 2021, 6670, 667005, 2, 'Biblioteca Tecnica', 25),
 ('gconti', 'Algoritmi Avanzati', 2023, 6007, 600701, 3, 'Aula Informatica', 40),
 ('gconti', 'Big Data Lab', 2023, 6007, 600702, 2, 'Laboratorio Sistemi', 30),
@@ -196,85 +222,85 @@ INSERT INTO Gruppo (AdminGruppo, NomeGruppo, Anno, CorsoLaurea, Materia, NumeroP
 -- =============================
 -- Disegno dell’Architettura
 INSERT INTO Argomento VALUES
-('Proiezioni ortogonali', 'arianna', 'Disegno Base Architettura'),
-('Assonometria e prospettiva', 'arianna', 'Disegno Base Architettura'),
-('Sezioni e piante', 'arianna', 'Disegno Base Architettura');
+('Proiezioni ortogonali', 'arianna', 'Disegno Base Architettura', false),
+('Assonometria e prospettiva', 'arianna', 'Disegno Base Architettura', false),
+('Sezioni e piante', 'arianna', 'Disegno Base Architettura', true);
 
 -- Progettazione Architettonica I
 INSERT INTO Argomento VALUES
-('Analisi del sito', 'arianna', 'Lab Progettazione I'),
-('Concept progettuale', 'arianna', 'Lab Progettazione I'),
-('Modello preliminare', 'arianna', 'Lab Progettazione I');
+('Analisi del sito', 'arianna', 'Lab Progettazione I', false),
+('Concept progettuale', 'arianna', 'Lab Progettazione I', true),
+('Modello preliminare', 'arianna', 'Lab Progettazione I', false);
 
 -- Scienza delle Costruzioni
 INSERT INTO Argomento VALUES
-('Equilibrio delle strutture', 'mrossi', 'Scienza Costruzioni A'),
-('Travi e telai', 'mrossi', 'Scienza Costruzioni A');
+('Equilibrio delle strutture', 'mrossi', 'Scienza Costruzioni A', false),
+('Travi e telai', 'mrossi', 'Scienza Costruzioni A', true);
 
 -- Urbanistica
 INSERT INTO Argomento VALUES
-('Piani regolatori', 'gconti', 'Urbanistica Insieme'),
-('Zonizzazione urbana', 'gconti', 'Urbanistica Insieme');
+('Piani regolatori', 'gconti', 'Urbanistica Insieme', true),
+('Zonizzazione urbana', 'gconti', 'Urbanistica Insieme', false);
 
 -- Elaborazione dei Segnali
 INSERT INTO Argomento VALUES
-('Segnali continui e discreti', 'lbianchi', 'Segnali Biomedici'),
-('Trasformata di Fourier', 'lbianchi', 'Segnali Biomedici'),
-('Filtraggio dei segnali biologici', 'lbianchi', 'Segnali Biomedici');
+('Segnali continui e discreti', 'lbianchi', 'Segnali Biomedici', false),
+('Trasformata di Fourier', 'lbianchi', 'Segnali Biomedici', true),
+('Filtraggio dei segnali biologici', 'lbianchi', 'Segnali Biomedici', true);
 
 -- Bioingegneria
 INSERT INTO Argomento VALUES
-('Introduzione alla bioingegneria', 'lbianchi', 'Bioingegneria Base'),
-('Applicazioni cliniche', 'lbianchi', 'Bioingegneria Base');
+('Introduzione alla bioingegneria', 'lbianchi', 'Bioingegneria Base', false),
+('Applicazioni cliniche', 'lbianchi', 'Bioingegneria Base', true);
 
 -- Tecnologie Web
 INSERT INTO Argomento VALUES
-('HTML e CSS', 'mrossi', 'Tecnologie Web 2025'),
-('JavaScript', 'mrossi', 'Tecnologie Web 2025'),
-('PHP e MySQL', 'mrossi', 'Tecnologie Web 2025');
+('HTML e CSS', 'mrossi', 'Tecnologie Web 2025', true),
+('JavaScript', 'mrossi', 'Tecnologie Web 2025', false),
+('PHP e MySQL', 'mrossi', 'Tecnologie Web 2025', false);
 
 -- Ingegneria del Software
 INSERT INTO Argomento VALUES
-('Ciclo di vita del software', 'mrossi', 'Ingegneria Software'),
-('UML e diagrammi', 'mrossi', 'Ingegneria Software');
+('Ciclo di vita del software', 'mrossi', 'Ingegneria Software', true),
+('UML e diagrammi', 'mrossi', 'Ingegneria Software', false);
 
 -- Ricerca Operativa
 INSERT INTO Argomento VALUES
-('Programmazione lineare', 'gconti', 'Ricerca Operativa Base'),
-('Metodo del simplesso', 'gconti', 'Ricerca Operativa Base');
+('Programmazione lineare', 'gconti', 'Ricerca Operativa Base', false),
+('Metodo del simplesso', 'gconti', 'Ricerca Operativa Base', true);
 
 -- Algoritmi di Ottimizzazione
 INSERT INTO Argomento VALUES
-('Programmazione lineare', 'fneri', 'Ottimizzazione Avanzata'),
-('Algoritmi genetici', 'fneri', 'Ottimizzazione Avanzata');
+('Programmazione lineare', 'fneri', 'Ottimizzazione Avanzata', true),
+('Algoritmi genetici', 'fneri', 'Ottimizzazione Avanzata', false);
 
 -- Elaborazione dei Segnali
 INSERT INTO Argomento VALUES
-('Filtraggio e FFT', 'fneri', 'Elaborazione Segnali Elettronici'),
-('Segnali continui e discreti', 'fneri', 'Elaborazione Segnali Elettronici'),
-('Applicazioni in elettronica', 'fneri', 'Elaborazione Segnali Elettronici');
+('Filtraggio e FFT', 'fneri', 'Elaborazione Segnali Elettronici', false),
+('Segnali continui e discreti', 'fneri', 'Elaborazione Segnali Elettronici', true),
+('Applicazioni in elettronica', 'fneri', 'Elaborazione Segnali Elettronici', false);
 
 -- Elettronica dei Sistemi Digitali
 INSERT INTO Argomento VALUES
-('Logica combinatoria', 'fneri', 'Elettronica Digitale Base'),
-('Flip-flop e registri', 'fneri', 'Elettronica Digitale Base');
+('Logica combinatoria', 'fneri', 'Elettronica Digitale Base', true),
+('Flip-flop e registri', 'fneri', 'Elettronica Digitale Base', false);
 
 -- Algoritmi e Strutture Dati
 INSERT INTO Argomento VALUES
-('Algoritmi di ordinamento', 'gconti', 'Algoritmi Avanzati'),
-('Strutture dati lineari', 'gconti', 'Algoritmi Avanzati'),
-('Strutture dati non lineari', 'gconti', 'Algoritmi Avanzati');
+('Algoritmi di ordinamento', 'gconti', 'Algoritmi Avanzati', true),
+('Strutture dati lineari', 'gconti', 'Algoritmi Avanzati', false),
+('Strutture dati non lineari', 'gconti', 'Algoritmi Avanzati', false);
 
 -- Laboratorio di Big Data
 INSERT INTO Argomento VALUES
-('MapReduce', 'gconti', 'Big Data Lab'),
-('NoSQL', 'gconti', 'Big Data Lab');
+('MapReduce', 'gconti', 'Big Data Lab', true),
+('NoSQL', 'gconti', 'Big Data Lab', false);
 
 -- Basi di Dati
 INSERT INTO Argomento VALUES
-('Progettazione schema E/R', 'mrossi', 'Basi di Dati Studio'),
-('SQL avanzato', 'mrossi', 'Basi di Dati Studio'),
-('Ottimizzazione query', 'mrossi', 'Basi di Dati Studio');
+('Progettazione schema E/R', 'mrossi', 'Basi di Dati Studio', true),
+('SQL avanzato', 'mrossi', 'Basi di Dati Studio', true),
+('Ottimizzazione query', 'mrossi', 'Basi di Dati Studio', false);
 
 -- =============================
 --           INCONTRI
@@ -297,11 +323,6 @@ INSERT INTO Incontro (AdminGruppo, NomeGruppo, DataIncontro, Ora) VALUES
 ('gconti', 'Big Data Lab', '2026-01-17', '15:00:00'),
 ('mrossi', 'Basi di Dati Studio', '2026-01-18', '16:00:00'),
 ('mrossi', 'Basi di Dati Studio', '2026-01-25', '16:00:00');
-
--- =============================
---           MATERIALE
--- =============================
-
 
 -- =============================
 --         ISCRIZIONI
@@ -391,13 +412,3 @@ INSERT INTO Iscrizione VALUES
 ('mrossi', 'Basi di Dati Studio', 'mrossi'),
 ('mrossi', 'Basi di Dati Studio', 'arianna'),
 ('mrossi', 'Basi di Dati Studio', 'gconti');
-
--- =============================
---             LINK
--- =============================
-INSERT INTO Link (NomeLink, Indirizzo) VALUES
-('Google', 'https://www.google.com'),
-('Ateneo', 'https://portale.univ.it'),
-('Materiali', 'https://drive.google.com'),
-('Forum', 'https://forumstudenti.it'),
-('GitHub', 'https://github.com');

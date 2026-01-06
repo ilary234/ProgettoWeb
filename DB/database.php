@@ -50,6 +50,54 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function insertIncontro($admin, $nomeGruppo, $data, $ora) {
+        $stmt = $this->db->prepare("INSERT INTO Incontro VALUES (?, ?, ?, ?)");
+        $stmt->bind_param('ssss',  $admin, $nomeGruppo, $data, $ora);
+        return $stmt->execute();
+    }
+
+    public function deleteIncontro($data, $admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("DELETE FROM Incontro WHERE DataIncontro = ? AND AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('sss',$data, $admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function insertArgomento($admin, $nomeGruppo, $titolo) {
+        $stmt = $this->db->prepare("INSERT INTO Argomento VALUES (?, ?, ?, 0)");
+        $stmt->bind_param('sss',  $titolo, $admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function updateArgomento($admin, $nomeGruppo, $titolo, $svolto) {
+        $stmt = $this->db->prepare("UPDATE Argomento SET Svolto = ? WHERE Titolo = ? AND AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param("isss", $svolto, $titolo, $admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function updateGruppoLuogo($admin, $nomeGruppo, $luogo) {
+        $stmt = $this->db->prepare("UPDATE Gruppo SET LuogoIncontro = ? WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param("sss", $luogo,$admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function updateGruppoPercent($admin, $nomeGruppo, $percentuale) {
+        $stmt = $this->db->prepare("UPDATE Gruppo SET PercentualeCompletamento = ? WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param("sss", $percentuale,$admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function deleteGruppo($admin, $nomeGruppo) {
+        $stmt = $this->db->prepare("DELETE FROM Gruppo WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt->bind_param('ss',$admin, $nomeGruppo);
+        return $stmt->execute();
+    }
+
+    public function insertGruppo($admin, $nomeGruppo, $luogo, $corso, $materia) {
+        $stmt = $this->db->prepare("INSERT INTO Gruppo VALUES (?, ?, YEAR(CURDATE()), ?, ?, 1, ?, 0)");
+        $stmt->bind_param('sssss',  $admin, $nomeGruppo, $corso, $materia, $luogo);
+        return $stmt->execute();
+    }
+
     public function getGroupData($admin, $nomeGruppo) {
         $stmt = $this->db->prepare("SELECT * FROM Gruppo WHERE AdminGruppo = ? AND NomeGruppo = ?");
         $stmt->bind_param('ss', $admin, $nomeGruppo);
@@ -59,7 +107,7 @@ class DatabaseHelper{
     }
 
     public function getTopics($admin, $nomeGruppo) {
-        $stmt = $this->db->prepare("SELECT Titolo FROM Argomento WHERE AdminGruppo = ? AND NomeGruppo = ?");
+        $stmt = $this->db->prepare("SELECT Titolo, Svolto FROM Argomento WHERE AdminGruppo = ? AND NomeGruppo = ?");
         $stmt->bind_param('ss', $admin, $nomeGruppo);
         $stmt->execute();
         $result = $stmt->get_result();
