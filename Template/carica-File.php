@@ -9,7 +9,7 @@
                 <input type="hidden" id="nomeGruppo" name="nomeGruppo" value="<?php echo $templateParams["nomeGruppo"] ?>">
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="titolo" name="titolo" required>
+                    <input type="text" class="form-control" id="titolo" name="titolo" maxlength=100 required>
                 </div>
                 <div class="mb-3">
                     <label for="uploadFile" class="form-label">File</label>

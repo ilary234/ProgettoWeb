@@ -137,7 +137,7 @@ h2, p {
     transition: font-weight 0.3s;
 }
 
-main > button {
+main > button, main > .addGroup {
     border-radius: 50%;
     border: 1px solid #3f5788;
     background-color: #3f5788;
@@ -151,7 +151,13 @@ main > button {
     transition: background-color 0.3s;
 }
 
-main > button:hover {
+main > .addGroup {
+    text-decoration: none;
+    text-align: center;
+    line-height: inherit;
+}
+
+main > button:hover, main > .addGroup:hover {
     background-color: #9cbce7;
     color: black;
 }
@@ -288,11 +294,12 @@ main > button:hover {
     border-radius: 16px;
     padding: 2%;
     margin: 2%;
-    min-width: 200px;
+    min-width: 300px;
 }
 
 .dati-gruppo > header > .buttons {
     right: 1%;
+    padding: 2%;
 }
 
 .dati-gruppo > form > input, .dati-gruppo > form > select {
@@ -332,6 +339,7 @@ progress {
     font-size: x-large;
     margin-right: 1%;
     width: 65%;
+    padding: 2%;
 }
 
 .dati-gruppo > header {

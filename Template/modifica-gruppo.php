@@ -125,7 +125,7 @@
         <div class="alert alert-danger d-none alertArgomento"></div>
         <form action="#">
             <label for="titoloArgomento">Titolo:</label>
-            <input type="text" id="titoloArgomento" name="titoloArgomento">
+            <input type="text" id="titoloArgomento" name="titoloArgomento" maxlength=100>
         </form>
       </div>
       <div class="modal-footer">

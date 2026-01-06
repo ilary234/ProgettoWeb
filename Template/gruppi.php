@@ -15,4 +15,6 @@
     </form>
 </section>
 <section class="flex-container"></section>
-<button class="button material-icons">add</button>
+<?php if(isUserLoggedIn()): ?>
+<a href="creaGruppo.php" class="addGroup material-icons">add</a>
+<?php endif ?>

@@ -92,6 +92,12 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function insertGruppo($admin, $nomeGruppo, $luogo, $corso, $materia) {
+        $stmt = $this->db->prepare("INSERT INTO Gruppo VALUES (?, ?, YEAR(CURDATE()), ?, ?, 1, ?, 0)");
+        $stmt->bind_param('sssss',  $admin, $nomeGruppo, $corso, $materia, $luogo);
+        return $stmt->execute();
+    }
+
     public function getGroupData($admin, $nomeGruppo) {
         $stmt = $this->db->prepare("SELECT * FROM Gruppo WHERE AdminGruppo = ? AND NomeGruppo = ?");
         $stmt->bind_param('ss', $admin, $nomeGruppo);
