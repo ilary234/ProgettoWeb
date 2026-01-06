@@ -55,7 +55,34 @@ INSERT INTO Materia (Id_Materia, Corso, NomeMateria) VALUES
 (600702, 6007, 'Laboratorio di Big Data'),
 (600703, 6007, 'Progettazione e Sviluppo del Software'),
 (600704, 6007, 'Sistemi Virtualizzati'),
-(600705, 6007, 'Basi di Dati');
+(600705, 6007, 'Basi di Dati'),
+(662401, 6624, 'Psicologia dello sviluppo'),
+(662402, 6624, 'Antropologia culturale'),
+(662403, 6624, 'Neurofisiologia'),
+(668101, 6681, 'Fotografia e comunicazione del cibo'),
+(668102, 6681, 'Microbiologia generale e alimentare'),
+(662901, 6629, 'Chimica generale'),
+(662902, 6629, 'Fisica tecnica'),
+(663001, 6630, 'Colture arboree'),
+(663002, 6630, 'Biochimica'),
+(682301, 6823, 'Business model'),
+(682302, 6823, 'Database systems'),
+(670501, 6705, 'Biostatistics'),
+(670502, 6705, 'Neurophysiology'),
+(669901, 6699, 'Distributed systems'),
+(669902, 6699, 'Machine learning'),
+(671501, 6715, 'Machine learning LM'),
+(671502, 6715, 'Elettronica analogica LM'),
+(674301, 6743, 'Neuroscienze affettive e cognitive'),
+(674302, 6743, 'Neuroscienze dell’invecchiamento'),
+(674401, 6744, 'Metodologia clinica'),
+(674402, 6744, 'Psicosomatica'),
+(674801, 6748, 'Intervento nei contesti scolastici'),
+(674802, 6748, 'Valutazione dei disturbi dell’apprendimento'),
+(674701, 6747, 'Work psychology'),
+(674702, 6747, 'Personnel psychology'),
+(678801, 6788, 'Qualità dei prodotti ittici'),
+(678802, 6788, 'Sistema alimentare');
 
 -- =============================
 --            UTENTI
@@ -140,7 +167,6 @@ INSERT INTO Annuncio (Categoria, Materia, Titolo, DataPubblicazione, Username, A
  'Offro supporto per Basi di Dati: progettazione schema E/R, SQL avanzato e ottimizzazione query. '
  'Ideale per chi vuole esercitarsi prima dell’esame.'
 );
-
 
 -- =============================
 --           COMMENTI
@@ -299,11 +325,6 @@ INSERT INTO Incontro (AdminGruppo, NomeGruppo, DataIncontro, Ora) VALUES
 ('mrossi', 'Basi di Dati Studio', '2026-01-25', '16:00:00');
 
 -- =============================
---           MATERIALE
--- =============================
-
-
--- =============================
 --         ISCRIZIONI
 -- =============================
 -- Disegno dell’Architettura
@@ -391,13 +412,3 @@ INSERT INTO Iscrizione VALUES
 ('mrossi', 'Basi di Dati Studio', 'mrossi'),
 ('mrossi', 'Basi di Dati Studio', 'arianna'),
 ('mrossi', 'Basi di Dati Studio', 'gconti');
-
--- =============================
---             LINK
--- =============================
-INSERT INTO Link (NomeLink, Indirizzo) VALUES
-('Google', 'https://www.google.com'),
-('Ateneo', 'https://portale.univ.it'),
-('Materiali', 'https://drive.google.com'),
-('Forum', 'https://forumstudenti.it'),
-('GitHub', 'https://github.com');

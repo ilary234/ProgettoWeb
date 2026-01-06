@@ -79,12 +79,6 @@ create table Iscrizione (
      `Username` varchar(20) not null,
      constraint IDIscrizione primary key (AdminGruppo, NomeGruppo, Username));
 
-create table Link (
-     `Id_link` integer auto_increment,
-     `NomeLink` varchar(20) not null,
-     `Indirizzo` varchar(200) not null,
-     constraint IDLink primary key (Id_link));
-
 create table CorsoLaurea (
      `Id_Corso` integer not null,
      `NomeCorso` varchar(100) not null,
