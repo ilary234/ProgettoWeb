@@ -87,7 +87,7 @@ async function createAnnouncement(e) {
         return;
     }
 
-    window.location.replace("/ProgettoWeb/annunci.php");
+    window.location.href = "annunci.php";
 }
 
 loadSelectData();

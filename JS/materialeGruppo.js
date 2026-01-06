@@ -4,10 +4,10 @@ const filedir = "./Upload/"
 let files;
 let fileDaEliminare, titoloDaEliminare;
 
-document.querySelector(".button").addEventListener("click", () => window.location.href = `caricaFile.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`);
+document.querySelector(".addMaterial").addEventListener("click", () => window.location.href = `caricaFile.php?nomeGruppo=${urlParams.get('nomeGruppo')}&admin=${urlParams.get('admin')}`);
 
 document.addEventListener("click", function(event) {
-    if (event.target.classList.contains("delete-btn")) {
+    if (event.target.classList.contains("eliminaButton")) {
         event.preventDefault();
 
         titoloDaEliminare = event.target.dataset.titolo;
@@ -79,7 +79,7 @@ function getFiles() {
         section += `<div class="materiale">
                 <div class="anteprima">`;
         if(document.querySelector("#username").innerText == files[i]["Username"]) {
-           section +=  `<a href="#" class="btn btn-secondary material-icons" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>`;
+           section +=  `<a href="#" class="btn btn-secondary material-icons eliminaButton" data-titolo="${files[i]["Titolo"]}" data-file="${files[i]["Percorso"]}">close</a>`;
         }
         section += `<img src="${imgdir}${files[i]["Tipo"]}.png" alt="Estensione file ${files[i]["Tipo"]}">
                 </div>

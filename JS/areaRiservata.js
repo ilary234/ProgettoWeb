@@ -1,5 +1,4 @@
-const params = new URLSearchParams(window.location.search);
-const profileUser = params.get("user");
+const profileUser = PROFILE_USER;
 const isOwner = LOGGED_USER !== null && (profileUser === null || profileUser === LOGGED_USER);
 
 async function loadUserData() {
@@ -7,7 +6,6 @@ async function loadUserData() {
         const url = profileUser
             ? `API/api-utente.php?user=${encodeURIComponent(profileUser)}`
             : `API/api-utente.php`;
-
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -18,7 +16,6 @@ async function loadUserData() {
 
         const user = data.user;
         const corso = data.corso;
-        console.log(user);
 
         document.getElementById("nome-cognome").textContent =
             `${user.Nome} ${user.Cognome}`;

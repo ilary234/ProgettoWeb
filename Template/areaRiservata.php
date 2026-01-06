@@ -7,7 +7,6 @@
     const LOGGED_USER  = <?= $loggedUser ? json_encode($loggedUser) : 'null' ?>;
     const PROFILE_USER = <?= json_encode($profileUser) ?>;
 </script>
-<script src="JS/areaRiservata.js"></script>
 <section class="container my-5 <?= $isOwner ? 'owner-view' : 'guest-view' ?>">
 
     <h2 class="text-center mb-4">Area Riservata</h2>
@@ -49,7 +48,6 @@
         </div>
     </div>
 
-    <!-- MATERIALE CONDIVISO -> DA SISTEMARE -->
      <?php if ($isOwner): ?>
         <h3 class="text-center mb-4">Materiale condiviso</h3>
         <section class="flex-container"></section>

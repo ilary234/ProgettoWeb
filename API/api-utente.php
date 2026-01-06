@@ -11,6 +11,7 @@
     }
 
     $user = $dbh->getUserByUsername($profileUser);
+    $corso = "";
     
     if (!empty($user['CorsoLaurea'])) {
         $corso = $dbh->getCorsoLaureaById($user['CorsoLaurea']);

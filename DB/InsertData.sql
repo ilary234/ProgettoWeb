@@ -90,7 +90,7 @@ INSERT INTO Materia (Id_Materia, Corso, NomeMateria) VALUES
 INSERT INTO Utente (Username, Nome, Cognome, Password, Email, Telefono, CorsoLaurea, Anno) VALUES
 ('mrossi',  'Marco',   'Rossi',   'pw123', 'mrossi@studio.unibo.it',  '3331111111', 6673, 2023),
 ('lbianchi','Luca',    'Bianchi', 'pw123', 'luca@studio.unibo.it',    '3332222222', 6669, 2022),
-('fneri',   'Francesca','Neri',    'pw123', 'fneri@studio.unibo.it',   NULL,         6670, 2021),
+('fneri',   'Francesca','Neri',    'pw123', 'fneri@studio.unibo.it',   NULL,         NULL, 2021),
 ('arianna', 'Arianna', 'Verdi',   'pw123', 'averdi@studio.unibo.it',  '3333333333', 6729, 2024),
 ('gconti',  'Giorgio', 'Conti',   'pw123', 'gconti@studio.unibo.it',  '3334444444', 6007, 2023);
 
