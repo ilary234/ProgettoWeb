@@ -129,11 +129,14 @@ h2, p {
     font-size: small;
 }
 
-.gruppo a, .materiale .download {
+.gruppo a, .dati-gruppo a, .materiale .download, .materiale > p > a {
+    color: black;
+}
+
+.gruppo > a, .materiale .download {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    color: black;
     transition: font-weight 0.3s;
 }
 
@@ -171,7 +174,6 @@ main > button:hover, main > .addGroup:hover {
     padding: 1% 4%; 
     display: block;
     margin-left: auto;
-    /*margin-top: 0.5rem;*/
 }
 
 #cancel {
@@ -383,12 +385,15 @@ progress {
     overflow: hidden;
 }
 
+.annuncio a {
+    color: black;
+}
+
 .annuncio .leggi-tutto { 
     position: absolute; 
     bottom: 10px; 
     right: 10px; 
-    color: black; 
-    font-weight: bold; 
+    color: black;  
 } 
 
 .annuncio-dettagli { 
@@ -584,18 +589,14 @@ main > section > form#editProfileForm, main > section > form#changePasswordForm 
     position: absolute;
     top: 8px;
     right: 8px;
-
     width: 28px;
     height: 28px;
-
     border: none;
     border-radius: 6px;
-
     background-color: #fff;
     color: #3f5788;
     font-size: 18px;
     font-weight: bold;
-
     cursor: pointer;
 }
 
